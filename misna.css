@@ -13,11 +13,11 @@ html {
 :root {
     --primary-bg: #171717;
     --secondary-bg: #262626;
-    --accent-bg: #6f9606;
+    --accent-bg: #054e41;
 
     --primary-color: #fff;
     --secondary-color: rgba(255,255,255, 70%);
-    --accent-color: #818cf8;
+    --accent-color: #054e41;
 
     --border-color: rgba(255,255,255, 30%);
     
@@ -47,7 +47,6 @@ body {
     background-color: var(--primary-bg);
     border-radius: 40px;
     border: 2px solid var(--accent-bg);
-
     display: grid;
     grid-template-rows: 220px auto;
     overflow: auto;
@@ -69,7 +68,7 @@ body {
         .profile-image {
             width: 150px;
             height: 150px;
-            background: url('/images/misna-2.png') center;
+            background: url('/images/misnagoldlogo.png') center;
             background-size: cover;
             border-radius: 50%;
             border: 10px solid var(--primary-bg);
@@ -173,7 +172,7 @@ body {
         .social-media {
             grid-area: 2/1/3/3;
             background-color: var(--secondary-bg);
-            color: var(--secondary-color);
+            color:#fff;
             padding: 15px;
             border-radius: 10px;
 
@@ -181,9 +180,25 @@ body {
             align-items: center;
             gap: 15px;
         }
+        .vcard{
+            grid-area: 2/1/3/3;
+            background-color:transparent;
+            padding: 15px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+        }
+        .vcard button{
+            color:#fff;
+            background-color: #054e41;
+            width: 100%;
+            height:30px;
+        }
             .media-link {
                 text-decoration: none;
-                color: var(--accent-color);
+                color:#fff;
                 font-size: var(--subtitle);
             }
         .last-post {
