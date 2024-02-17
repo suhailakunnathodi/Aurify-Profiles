@@ -133,7 +133,7 @@
               <a href="https://www.misnagold.com/" class="post-CTA" style="color: aliceblue;">View</a>
 
             </div>
-            <div class="vcard" style="display: flex;justify-content: center;">
+            <div class="vcard" id="save-btn style="display: flex;justify-content: center;">
               <button class="post-CTA">Save V-card</button>
             </div>
            
@@ -151,5 +151,22 @@
         </footer>
       </div>
     </div>
+    <script>
+      ar saveBtn = document.getElementById("save-btn");
+    saveBtn.addEventListener("click", function () {
+  // Get the contact information from the website
+  var contact = {
+    name: "Misna Gold",
+    phone: "97142594514",
+    email: "info@misnagold.com"
+  };
+  // create a vcard file
+  var vcard = "BEGIN:VCARD\nVERSION:4.0\nFN:" + contact.name + "\nTEL;TYPE=work,voice:" + contact.phone + "\nEMAIL:" + contact.email + "\nEND:VCARD";
+  var blob = new Blob([vcard], { type: "text/vcard" });
+  var url = URL.createObjectURL(blob);
+  saveBtn.href = url;
+  saveBtn.download = contact.name + ".vcf";
+});
+    </script>
   </body>
 </html>

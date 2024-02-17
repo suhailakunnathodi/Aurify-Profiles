@@ -99,20 +99,20 @@
               <a href="" class="media-link"
                 ><i class="fab fa-facebook-square"></i
               ></a>
-              <a href="https://twitter.com/MammadSahragard" class="media-link"
+              <a href="https://twitter.com/" class="media-link"
                 ><i class="fab fa-twitter-square"></i
               ></a>
               <a
-                href="https://www.linkedin.com/in/mohammadsahragard/"
+                href="https://www.linkedin.com/in/"
                 class="media-link"
                 ><i class="fab fa-linkedin"></i
               ></a>
               <a
-                href="https://www.instagram.com/mammad.sahragard/"
+                href="https://www.instagram.com/"
                 class="media-link"
                 ><i class="fab fa-instagram-square"></i
               ></a>
-              <a href="https://github.com/MohammadSahragard" class="media-link"
+              <a href="https://github.com/" class="media-link"
                 ><i class="fab fa-github-square"></i
               ></a>
             </div>
@@ -124,7 +124,7 @@
               <h3 class="post-title">3D layer</h3>
               <button class="post-CTA">View</button>
             </div>
-          </div>
+          </di v>
         </div>
         <footer style="text-align: center" >
           <p style="color: aliceblue; display: inline">
@@ -139,5 +139,22 @@
         </footer>
       </div>
     </div>
+    <script>
+        ar saveBtn = document.getElementById("save-btn");
+      saveBtn.addEventListener("click", function () {
+    // Get the contact information from the website
+    var contact = {
+      name: "Ajmal",
+      phone: "971585023411",
+      email: "ajmal@naherit.com"
+    };
+    // create a vcard file
+    var vcard = "BEGIN:VCARD\nVERSION:4.0\nFN:" + contact.name + "\nTEL;TYPE=work,voice:" + contact.phone + "\nEMAIL:" + contact.email + "\nEND:VCARD";
+    var blob = new Blob([vcard], { type: "text/vcard" });
+    var url = URL.createObjectURL(blob);
+    saveBtn.href = url;
+    saveBtn.download = contact.name + ".vcf";
+  });
+      </script>
   </body>
 </html>
