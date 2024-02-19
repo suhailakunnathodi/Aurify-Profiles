@@ -187,7 +187,7 @@ body {
             padding: 15px;
             border-radius: 10px;
             gap: 10px;
-            width: 100%; /* Add this property to make it 100% width */
+            width: 90%; /* Add this property to make it 100% width */
             box-sizing: border-box; /* Ensure padding is included in the width calculation */
         }
         .vcard button{
