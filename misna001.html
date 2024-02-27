@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="style1.css"> -->
+    <link href="https://fonts.googleapis.com/css2?family=Abel&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Abdul Hakeem Al Shoaibi</title>
+
+    <style>
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #222;
+    
+        background-image: url('./images/shiny-golden-particles-with-light-streak.jpg'); 
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed; 
+    
+    
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    font-family: Montserrat;
+    color: #b3afbf;
+}
+
+.card {
+    padding: 15px;
+    width: 350px;
+    background: #222;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.7);
+    user-select: none;
+}
+
+.cover-photo {
+    position: relative;
+    background: url(./images/1123.jpg);
+    background-size: cover;
+    height: 180px;
+    border-radius: 5px 5px 0 0;
+}
+
+.profile {
+    position: absolute;
+    width: 120px;
+    bottom: -60px;
+    left: 30%;
+    border-radius: 50%;
+    border: 2px solid #222;
+    background: #222;
+    padding: 5px;
+}
+
+.profile-name {
+    font-size: 20px;
+    margin: 80px 0 0 0px;
+    color: #fff;
+}
+
+.about {
+    margin-top: 30px;
+    line-height: 1.6;
+}
+
+.btn {
+    margin: 10px 0 20px 0;
+    background: #fff;
+    padding: 10px 32px;
+    border-radius: 3px;
+    border: 1px solid #fff;
+    font-weight: bold;
+    font-family: Montserrat;
+    cursor: pointer;
+    color: #222;
+    transition: 0.2s;
+}
+.btn2 {
+    margin: 0px 10px;
+    background: #fff;
+    padding: 10px 110px;
+    border-radius: 3px;
+    border: 1px solid #fff;
+    font-weight: bold;
+    font-family: Montserrat;
+    cursor: pointer;
+    color: #222;
+    transition: 0.2s;
+    margin-bottom: 20px;
+}
+.btn3 {
+    margin: 0px 10px;
+    background: #fff;
+    padding: 10px 90px;
+    border-radius: 3px;
+    border: 1px solid #fff;
+    font-weight: bold;
+    font-family: Montserrat;
+    cursor: pointer;
+    color: #222;
+    transition: 0.2s;
+    margin-bottom: 50px;
+}
+.btn:last-of-type {
+    background: transparent;
+    border-color: #fff;
+    color: #fff;
+}
+
+.btn:hover {
+    background: #fff;
+    color: #222;
+}
+
+.icons {
+    width: 180px;
+    margin: 0 auto 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.icons i {
+    cursor: pointer;
+    padding: 5px;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+.icons i:hover {
+    color: #fff;
+}
+
+
+
+
+    @media screen and (max-width: 600px) {
+        .card {
+            width: 90%;
+        }
+
+        .profile {
+            width: 80px;
+            bottom: -40px;
+        }
+
+        .profile-name {
+            font-size: 18px;
+            margin: 60px 0 0 0px;
+        }
+
+        .about {
+            margin-top: 20px;
+        }
+
+        .btn,
+        .btn2,
+        .btn3 {
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+
+        .icons {
+            width: 100%;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+    }
+
+    .cover-photo img {
+        width: 100%; /* Make sure the logo takes the full width of its container */
+        height: auto;
+    }
+
+    @media screen and (max-width: 600px) {
+        .cover-photo img {
+            max-width: 150px;
+        }
+    }
+
+    </style>
+</head>
+
+<body>
+  <div class="card">
+    <div class="cover-photo">
+        <img src="./images/misnagoldlogo.png" class="profile">
+    </div>
+    <h3 class="profile-name">MISNA GOLD</h3>
+    <!-- <p class="about">Dubai Wholesale Manager & Zayan Factory <br> Zayan For Gold & Jewellery</p> -->
+    <div class="icons" style="margin-top: 50px;margin-bottom:0px;display: flex;justify-content: center;">
+      <i class="fa-solid fa-map-location-dot" style="margin-bottom: -20px;font-size: x-large;"></i>
+  </div>
+    <p class="about" style="margin: 30px 0 30px 0;">  Shop#7, 
+        <br>Behind Gold Land blg
+        AL Daghaya,<br> Dubai - United Arab Emirates</p>
+    <!-- <a href="https://wa.me/971506563110"><button class="btn">Whatsapp</button></a> -->
+    <!-- <a href="tel:97142268886"><button class="btn">Call me</button></a> -->
+    <!-- <a href="mailto:dubai@zayanfactory.com"><button class="btn2">Email</button></a> -->
+    <a id="view-btn" href="https://aurifyae.github.io/Misnagold-App/profile"><button class="btn3">View Profile</button></a>
+    <a id="rate-btn" href="https://aurifyae.github.io/Misnagold-App/"><button class="btn3"> view live rate</button></a>
+    <a id="save-btn" href=""><button class="btn3">Save V-Card</button></a>
+    <!-- <div class="icons">
+        <i class="fa-brands fa-linkedin"></i>
+        <i class="fa-brands fa-instagram"></i>
+        <i class="fa-brands fa-youtube"></i>-
+        <i class="fa-brands fa-twitter"></i>
+    </div> -->
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var saveBtn = document.getElementById("save-btn");
+  
+    if (saveBtn) {
+      saveBtn.addEventListener("click", function () {
+        var contact = {
+          name: "Abdul Hakeem Al Shoaibi",
+          phone: "971506563110",
+          email: "dubai@zayanfactory.com"
+        };
+  
+        var vcard =
+          "BEGIN:VCARD\nVERSION:4.0\nFN:" +
+          contact.name +
+          "\nTEL;TYPE=work,voice:" +
+          contact.phone +
+          "\nEMAIL:" +
+          contact.email +
+          "\nEND:VCARD";
+  
+        var blob = new Blob([vcard], { type: "text/vcard" });
+        var url = URL.createObjectURL(blob);
+  
+        saveBtn.href = url;
+        saveBtn.download = contact.name + ".vcf";
+      });
+    }
+  });
+  
+      </script>
+</body>
+
+</html>
