@@ -166,8 +166,41 @@ li:hover {
                 <!-- <li><i class="fas fa-globe"></i> Website</li> -->
               
               
-          <li>Save v-card</li>
+          <li><div>
+            <a id="save-btn" href="#" style="text-decoration: none; color: #e4d8d5;"  >Save V-card</a>
+          </div></li>
         </menu>
       </main>
+
+
+      <script>
+        document.getElementById('save-btn').addEventListener('click', function() {
+          // Assuming 'vcard.vcf' is the file you want to save
+          var vCardData = 'BEGIN:VCARD\nVERSION:3.0\nFN:John Doe\nTEL:+1234567890\nEMAIL:john.doe@example.com\nEND:VCARD';
+    
+          // Creating a Blob with the vCard data
+          var blob = new Blob([vCardData], { type: 'text/vcard' });
+    
+          // Creating a link element
+          var link = document.createElement('a');
+    
+          // Setting the download attribute and the file name
+          link.download = 'vcard.vcf';
+    
+          // Creating a URL for the Blob and setting it as the href attribute
+          link.href = window.URL.createObjectURL(blob);
+    
+          // Appending the link to the document
+          document.body.appendChild(link);
+    
+          // Triggering a click event on the link to initiate the download
+          link.click();
+    
+          // Removing the link from the document
+          document.body.removeChild(link);
+        });
+      </script>
+    
+    
 </body>
 </html>
