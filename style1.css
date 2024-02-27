@@ -1,0 +1,124 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap");
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #222;
+    height: 100vh;
+    display: grid;
+    place-items: center;
+    font-family: Montserrat;
+    color: #b3afbf;
+}
+
+.card {
+    padding: 15px;
+    width: 350px;
+    background: #222;
+    border-radius: 5px;
+    text-align: center;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.7);
+    user-select: none;
+}
+
+.cover-photo {
+    position: relative;
+    background: url(./images/5338813.jpg);
+    background-size: cover;
+    height: 180px;
+    border-radius: 5px 5px 0 0;
+}
+
+.profile {
+    position: absolute;
+    width: 120px;
+    bottom: -60px;
+    left: 30%;
+    border-radius: 50%;
+    border: 2px solid #222;
+    background: #222;
+    padding: 5px;
+}
+
+.profile-name {
+    font-size: 20px;
+    margin: 80px 0 0 0px;
+    color: #fff;
+}
+
+.about {
+    margin-top: 30px;
+    line-height: 1.6;
+}
+
+.btn {
+    margin: 10px 0 20px 0;
+    background: #fff;
+    padding: 10px 32px;
+    border-radius: 3px;
+    border: 1px solid #fff;
+    font-weight: bold;
+    font-family: Montserrat;
+    cursor: pointer;
+    color: #222;
+    transition: 0.2s;
+}
+.btn2 {
+    margin: 0px 10px;
+    background: #fff;
+    padding: 10px 110px;
+    border-radius: 3px;
+    border: 1px solid #fff;
+    font-weight: bold;
+    font-family: Montserrat;
+    cursor: pointer;
+    color: #222;
+    transition: 0.2s;
+    margin-bottom: 20px;
+}
+.btn3 {
+    margin: 0px 10px;
+    background: #fff;
+    padding: 10px 90px;
+    border-radius: 3px;
+    border: 1px solid #fff;
+    font-weight: bold;
+    font-family: Montserrat;
+    cursor: pointer;
+    color: #222;
+    transition: 0.2s;
+    margin-bottom: 50px;
+}
+.btn:last-of-type {
+    background: transparent;
+    border-color: #fff;
+    color: #fff;
+}
+
+.btn:hover {
+    background: #fff;
+    color: #222;
+}
+
+.icons {
+    width: 180px;
+    margin: 0 auto 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+}
+
+.icons i {
+    cursor: pointer;
+    padding: 5px;
+    font-size: 18px;
+    transition: 0.2s;
+}
+
+.icons i:hover {
+    color: #fff;
+}
