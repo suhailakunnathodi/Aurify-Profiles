@@ -56,9 +56,9 @@ body {
 }
 
 .btn {
-    margin: 30px 15px;
+    margin: 10px 0 20px 0;
     background: #fff;
-    padding: 10px 25px;
+    padding: 10px 32px;
     border-radius: 3px;
     border: 1px solid #fff;
     font-weight: bold;
@@ -71,6 +71,19 @@ body {
     margin: 0px 10px;
     background: #fff;
     padding: 10px 110px;
+    border-radius: 3px;
+    border: 1px solid #fff;
+    font-weight: bold;
+    font-family: Montserrat;
+    cursor: pointer;
+    color: #222;
+    transition: 0.2s;
+    margin-bottom: 20px;
+}
+.btn3 {
+    margin: 0px 10px;
+    background: #fff;
+    padding: 10px 90px;
     border-radius: 3px;
     border: 1px solid #fff;
     font-weight: bold;

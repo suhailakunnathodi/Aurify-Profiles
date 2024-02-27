@@ -24,6 +24,7 @@
     <a href="https://wa.me/971509257494"><button class="btn">Whatsapp</button></a>
     <a href="tel:97167666994"><button class="btn">Call me</button></a>
     <a href="mailto:production@zayanfactory.com"><button class="btn2">Email</button></a>
+    <a id="save-btn" href="#"><button class="btn3">Save V-Card</button></a>
     <div class="icons">
         <i class="fa-brands fa-linkedin"></i>
         <i class="fa-brands fa-instagram"></i>
@@ -31,6 +32,37 @@
         <i class="fa-brands fa-twitter"></i>
     </div>
 </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var saveBtn = document.getElementById("save-btn");
+  
+    if (saveBtn) {
+      saveBtn.addEventListener("click", function () {
+        var contact = {
+          name: "Maher El Bagir Badiker",
+          phone: "971509257494",
+          email: "production@zayanfactory.com"
+        };
+  
+        var vcard =
+          "BEGIN:VCARD\nVERSION:4.0\nFN:" +
+          contact.name +
+          "\nTEL;TYPE=work,voice:" +
+          contact.phone +
+          "\nEMAIL:" +
+          contact.email +
+          "\nEND:VCARD";
+  
+        var blob = new Blob([vcard], { type: "text/vcard" });
+        var url = URL.createObjectURL(blob);
+  
+        saveBtn.href = url;
+        saveBtn.download = contact.name + ".vcf";
+      });
+    }
+  });
+  
+      </script>
 </body>
 
 </html>
