@@ -40,12 +40,12 @@
       saveBtn.addEventListener("click", function () {
         var contact = {
           name: "Maher El Bagir Badiker",
-          phone: "971509257494",
+          phone: "+971509257494",
           email: "production@zayanfactory.com"
         };
   
         var vcard =
-          "BEGIN:VCARD\nVERSION:4.0\nFN:" +
+          "BEGIN:VCARD\nVERSION:3.0\nFN:" +
           contact.name +
           "\nTEL;TYPE=work,voice:" +
           contact.phone +
@@ -54,10 +54,18 @@
           "\nEND:VCARD";
   
         var blob = new Blob([vcard], { type: "text/vcard" });
-        var url = URL.createObjectURL(blob);
-  
-        saveBtn.href = url;
-        saveBtn.download = contact.name + ".vcf";
+        if (navigator.msSaveBlob) {
+        // For IE and Edge
+        navigator.msSaveBlob(blob, contact.name + ".vcf");
+      } else {
+        // For other browsers
+        var link = document.createElement("a");
+        link.href = window.URL.createObjectURL(blob);
+        link.setAttribute("download", contact.name + ".vcf");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
       });
     }
   });
