@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Mohammad Sahragard" />
+    <title>Misna Gold</title>
+    <!-- import font icon (fontawesome) -->
+    <script
+      src="https://kit.fontawesome.com/b8b432d7d3.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- import css file (style.css) -->
+    <link rel="stylesheet" href="misna.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="profile-card">
+        <div class="profile-header">
+          <!-- profile header section -->
+          <div class="main-profile">
+            <div class="profile-image"></div>
+            <div class="profile-names">
+              <h1 class="username">MISNA</h1>
+              <small class="page-title">Gold</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-body">
+          <!-- profile body section -->
+          <div class="profile-actions">
+            <button
+              class="follow"
+              onclick="window.location.href='tel:(+971)42594514'"
+            >
+              <i class="fas fa-phone"></i> Contact
+            </button>
+            
+            <button  class="message">
+              <a style="text-decoration: none; color: #d7dbca;"  href="https://wa.me/971542790916">
+            <i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </button>
+
+            <section class="bio">
+              <div class="bio-header" style="display: flex;justify-content: center;">
+                <a href="https://www.google.com/maps/place/Dubai" target="_blank" style="color: rgb(231, 248, 248);text-decoration: none;margin-bottom: 10px;">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Address
+                </a>
+            </div>
+            
+              <p class="bio-text">
+                Shop#7, Behind Gold Land blg
+                 AL Daghaya,Dubai-UAE
+                 
+                 <a href="mailto:info@misnagold.com" class="post-CTA" style="margin-top: 10px; display: block; color: #d7dbca;">Email Us</a>
+
+
+              </p>
+            </section>
+          </div>
+
+          <div class="account-info" >
+            <div class="data">
+              <!-- <div class="important-data">
+                            <section class="data-item">
+                                <h3 class="value">104</h3>
+                                <small class="title">Post</small>
+                            </section>
+                            <section class="data-item">
+                                <h3 class="value">21K</h3>
+                                <small class="title">Follower</small>
+                            </section>
+                            </section>
+                            <section class="data-item">
+                                <h3 class="value">51</h3>
+                                <small class="title">Following</small>
+                            </section>
+                        </div> -->
+              <!-- <div class="other-data">
+                            <section class="data-item">
+                                <h3 class="value">41K</h3>
+                                <small class="title">Likes</small>
+                            </section>
+                            <section class="data-item">
+                                <h3 class="value">12K</h3>
+                                <small class="title">Comments</small>
+                            </section>
+                            <section class="data-item">
+                                <h3 class="value">2K</h3>
+                                <small class="title">Saved</small>
+                            </section>
+                        </div> -->
+
+              <h3 style="margin-bottom: 20px;">About Us</h3>
+              <p>
+                To empower businesses and individuals in optimizing their metal
+                trading strategies, providing unparalleled service, and
+                contributing to the growth of the global metal industry.
+              </p>
+            </div>
+            <!-- <div class="social-media" >
+              <span>Follow me in:</span>
+              <a href="" class="media-link"
+                ><i class="fab fa-facebook-square"></i
+              ></a>
+              <a href="https://twitter.com/" class="media-link"
+                ><i class="fab fa-twitter-square"></i
+              ></a>
+              <a
+                href="https://www.linkedin.com/in/"
+                class="media-link"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/"
+                class="media-link"
+                ><i class="fab fa-instagram-square"></i
+              ></a>
+              <a href="https://github.com/" class="media-link"
+                ><i class="fab fa-github-square"></i
+              ></a>
+            </div> -->
+
+            <div class="last-post" >
+              <div class="post-cover">
+                <span class="last-badge">Last Post</span>
+              </div>
+              <h3 class="post-title">Gold coins</h3>
+              <a href="https://www.misnagold.com/" class="post-CTA" style="color: aliceblue;">View</a>
+
+            </div>
+            <div class="vcard">
+            <div style="display: flex;justify-content: center;">
+              <a  href="https://aurifyae.github.io/Misnagold-App/" style="text-decoration: none; width: 100%;"><button class="post-CTA">View Live Rate</button></a>
+            </div>
+            <div style="display: flex;justify-content: center; margin-top: 10px;">
+              <a id="save-btn" href="#" style="text-decoration: none; width: 100%;"><button class="post-CTA">Save V-card</button></a>
+            </div>
+          </div>
+
+          </div>
+        </div>
+        <footer style="text-align: center; margin-bottom: 10px;" >
+          <p style="color: aliceblue; display: inline ;">
+            &copy; 2024
+            <a
+              href="https://www.Tecnavis.com"
+              style="text-decoration: none; color:rgb(166, 204, 241);" 
+              target="_blank">Tecnavis </a> All rights reserved.
+          </p>
+        </footer>
+      </div>
+    </div>
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+  var saveBtn = document.getElementById("save-btn");
+
+  if (saveBtn) {
+    saveBtn.addEventListener("click", function () {
+      var contact = {
+        name: "Misna Gold",
+        phone: "+97142594514",
+        email: "info@misnagold.com"
+      };
+
+      var vcard =
+        "BEGIN:VCARD\nVERSION:3.0\nFN:" +
+        contact.name +
+        "\nTEL;TYPE=work,voice:" +
+        contact.phone +
+        "\nEMAIL:" +
+        contact.email +
+        "\nEND:VCARD";
+
+      var blob = new Blob([vcard], { type: "text/vcard" });
+      if (navigator.msSaveBlob) {
+        // For IE and Edge
+        navigator.msSaveBlob(blob, contact.name + ".vcf");
+      } else {
+        // For other browsers
+        var link = document.createElement("a");
+        link.href = window.URL.createObjectURL(blob);
+        link.setAttribute("download", contact.name + ".vcf");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    });
+  }
+});
+
+    </script>
+  </body>
+</html>
