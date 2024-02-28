@@ -162,12 +162,12 @@ document.addEventListener("DOMContentLoaded", function () {
     saveBtn.addEventListener("click", function () {
       var contact = {
         name: "Misna Gold",
-        phone: "97142594514",
+        phone: "+97142594514",
         email: "info@misnagold.com"
       };
 
       var vcard =
-        "BEGIN:VCARD\nVERSION:4.0\nFN:" +
+        "BEGIN:VCARD\nVERSION:3.0\nFN:" +
         contact.name +
         "\nTEL;TYPE=work,voice:" +
         contact.phone +
@@ -176,10 +176,18 @@ document.addEventListener("DOMContentLoaded", function () {
         "\nEND:VCARD";
 
       var blob = new Blob([vcard], { type: "text/vcard" });
-      var url = URL.createObjectURL(blob);
-
-      saveBtn.href = url;
-      saveBtn.download = contact.name + ".vcf";
+      if (navigator.msSaveBlob) {
+        // For IE and Edge
+        navigator.msSaveBlob(blob, contact.name + ".vcf");
+      } else {
+        // For other browsers
+        var link = document.createElement("a");
+        link.href = window.URL.createObjectURL(blob);
+        link.setAttribute("download", contact.name + ".vcf");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
     });
   }
 });

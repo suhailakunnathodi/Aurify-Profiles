@@ -33,35 +33,44 @@
     </div>
 </div>
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    var saveBtn = document.getElementById("save-btn");
-  
-    if (saveBtn) {
-      saveBtn.addEventListener("click", function () {
-        var contact = {
-          name: "Abdul Hakeem Al Shoaibi",
-          phone: "971506563110",
-          email: "dubai@zayanfactory.com"
-        };
-  
-        var vcard =
-          "BEGIN:VCARD\nVERSION:4.0\nFN:" +
-          contact.name +
-          "\nTEL;TYPE=work,voice:" +
-          contact.phone +
-          "\nEMAIL:" +
-          contact.email +
-          "\nEND:VCARD";
-  
-        var blob = new Blob([vcard], { type: "text/vcard" });
-        var url = URL.createObjectURL(blob);
-  
-        saveBtn.href = url;
-        saveBtn.download = contact.name + ".vcf";
-      });
-    }
-  });
-  
+document.addEventListener("DOMContentLoaded", function () {
+  var saveBtn = document.getElementById("save-btn");
+
+  if (saveBtn) {
+    saveBtn.addEventListener("click", function () {
+      var contact = {
+        name: "Abdul Hakeem Al Shoaibi",
+        phone: "+971506563110",
+        email: "dubai@zayanfactory.com"
+      };
+
+      var vcard =
+        "BEGIN:VCARD\nVERSION:3.0\nFN:" +
+        contact.name +
+        "\nTEL;TYPE=WORK,VOICE:" +
+        contact.phone +
+        "\nEMAIL:" +
+        contact.email +
+        "\nEND:VCARD";
+
+      var blob = new Blob([vcard], { type: "text/vcard" });
+
+      if (navigator.msSaveBlob) {
+        // For IE and Edge
+        navigator.msSaveBlob(blob, contact.name + ".vcf");
+      } else {
+        // For other browsers
+        var link = document.createElement("a");
+        link.href = window.URL.createObjectURL(blob);
+        link.setAttribute("download", contact.name + ".vcf");
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    });
+  }
+});
+
       </script>
 </body>
 
