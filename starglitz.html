@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnavis web solutions</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  background: #eeeeec;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 100%;
+}
+
+
+.customSlider {
+
+  opacity: 0;
+  display: none;
+}
+.customSlider + label {
+  position: relative;
+  top: 12%;
+  left: 40%;
+  cursor: pointer;
+  z-index: 1;
+  
+}
+
+.customSlider + label:before, .customSlider + label:after {
+  background: #FFFFFF;
+  position: absolute;
+  content: "";
+}
+.customSlider + label:before {
+  top: -90px;
+  left: -60px;
+  width: 60px;
+  height: 30px;
+  background: #ccc;
+  border-radius: 20px;
+  transition: background 0.75s;
+}
+.customSlider + label:after {
+  height: 24px;
+  width: 24px;
+  top: -87px;
+  left: -55px;
+  border-radius: 50%;
+  transition: all 0.5s;
+}
+.customSlider:checked + label:after {
+  height: 24px;
+  width: 24px;
+  top: -87px;
+  left: -28px;
+  border-radius: 50%;
+}
+
+.customSlider:checked ~ .wrapper {
+  color: #fff;
+  transition: background 0.6s ease;
+  background: #31394D;
+}
+.customSlider:checked ~ .wrapper .top-icons i {
+  color: #fff;
+}
+.customSlider:checked ~ .wrapper .profile .name {
+  color: #FDFEFF;
+}
+.customSlider:checked ~ .wrapper .profile .title {
+  color: #7C8097;
+}
+.customSlider:checked ~ .wrapper .profile .description {
+  color: #FDFEFF;
+}
+.customSlider:checked ~ .wrapper .icon h4 {
+  color: #FFFFFF;
+}
+.customSlider:checked ~ .wrapper .icon p {
+  color: #666B7D;
+}
+.customSlider:checked ~ .wrapper .profile img {
+    content: url('./logos/tecnavis/tecnavis\ logo.png'); /* Replace with the new image URL */
+}
+
+
+.wrapper {
+  position:relative;
+  width: 90%;
+  height: 90%;
+  background: #FDFEFF;
+  transition: background 0.6s ease;
+  border-radius: 10px;
+  padding: 20px 20px 20px 20px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+}
+
+
+.wrapper .top-icons i {
+  color: #080911;
+}
+.wrapper .top-icons i:nth-of-type(1) {
+  float: left;
+}
+.wrapper .top-icons i:nth-of-type(2) {
+  float: right;
+}
+.wrapper .top-icons i:nth-of-type(3) {
+  float: right;
+  padding-right: 0.8em;
+}
+.wrapper .profile {
+  margin-top: 2.2em;
+  position: relative;
+}
+.wrapper .profile:after {
+  width: 100%;
+  height: 1px;
+  content: " ";
+  display: block;
+  margin-top: 1.3em;
+  background: #E9EFF6;
+}
+.wrapper .profile .check {
+  position: absolute;
+  right: 5em;
+  bottom: 12.7em;
+}
+.wrapper .profile .check i {
+  color: #fff;
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 100%;
+  background: linear-gradient(to bottom right, #C90A6D, #FF48A0);
+}
+.wrapper .profile .thumbnail {
+  width: 124px;
+  height: 124px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5em;
+  border-radius: 100%;
+  box-shadow: 0 13px 26px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+.wrapper .profile .name {
+  color: #2D354A;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+.wrapper .profile .title {
+  color: #7C8097;
+  font-size: 0.75em;
+  font-weight: 300;
+  text-align: center;
+  padding-top: 0.5em;
+  padding-bottom: 0.7em;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.wrapper .profile .description {
+  color: #080911;
+  font-size: 14px;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 1.3em;
+}
+.wrapper .profile .btn {
+  color: #fff;
+  width: 130px;
+  height: 42px;
+  outline: none;
+  border: none;
+  display: block;
+  cursor: pointer;
+  font-weight: 300;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 70px;
+  box-shadow: 0 13px 26px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16);
+  background: linear-gradient(to bottom right, #C90A6D, #FF48A0);
+}
+.wrapper .social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1.2em;
+  justify-content: space-between;
+}
+.wrapper .social-icons .icon {
+  width: 30%; /* Adjust the width as needed */
+  margin-bottom: 1.2em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.wrapper .social-icons .icon a {
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  font-size: 28px;
+  line-height: 60px;
+  text-align: center;
+  border-radius: 30px;
+  box-shadow: 0 13px 26px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+.wrapper .social-icons .icon:nth-of-type(1) a {
+  background: linear-gradient(to bottom right, #12da55, #3bd443);
+}
+.wrapper .social-icons .icon:nth-of-type(2) a {
+  background: linear-gradient(to bottom right, #5E5AEC, #3F9EFC);
+}
+.wrapper .social-icons .icon:nth-of-type(3) a {
+  background: linear-gradient(to bottom right, #bee041, #adfd70);
+}
+.wrapper .social-icons .icon:nth-of-type(4) a {
+  background: linear-gradient(to bottom right, #e9c652, #e9c652);
+}
+.wrapper .social-icons .icon:nth-of-type(5) a {
+  background: linear-gradient(to bottom right, #ee3608, #cc137f);
+}
+.wrapper .social-icons .icon:nth-of-type(6) a {
+  background: linear-gradient(to bottom right, #6567d6, #8075e7);
+}
+.wrapper .social-icons .icon:nth-of-type(7) a {
+  background: linear-gradient(to bottom right, #ce33c6, #db80bd);
+}
+.wrapper .social-icons .icon:nth-of-type(8) a {
+  background: linear-gradient(to bottom right, #dd1562, #e6328c);
+}
+.wrapper .social-icons .icon:nth-of-type(9) a {
+  background: linear-gradient(to bottom right, #1f9be8, #4caae4);
+}
+
+.wrapper .social-icons .icon h4 {
+  color: #080911;
+  font-size: 1em;
+  margin-top: 1.3em;
+  margin-bottom: 0.2em;
+}
+.wrapper .social-icons .icon p {
+  color: #666B7D;
+  font-size: 12px;
+}
+
+.concept {
+  position: absolute;
+  bottom: 12px;
+  color: #AAB0C4;
+  font-size: 0.9em;
+  font-weight: 400;
+}
+.concept a {
+  color: #ac1966;
+  text-decoration: none;
+}
+
+body.dark-mode img {
+            filter: invert(1);
+        }
+</style>
+    
+</head>
+<body>
+  
+  
+  <input id="slider" class="customSlider" type="checkbox">
+  <label for="slider"></label>
+
+<div class="wrapper">
+	<!-- <div class="top-icons">
+		<i class="fas fa-long-arrow-alt-left"></i>
+		<i class="fas fa-ellipsis-v"></i>
+		<i class="far fa-heart"></i>
+	</div> -->
+	
+	<div class="profile">
+
+
+    
+
+		<center><img src  ="./logos/AIBAK-LOGO.png"  style="height: 200px; width: 200px ;margin-bottom: 10px; "></center>
+    <!-- class="thumbnail"> -->
+		<!-- <div class="check"><i class="fas fa-check"></i></div> -->
+		<h3 class="name" style="font-weight: 800;">Star Glitz</h3>
+		<p class="title">Jewellery LLC</p>
+		<!-- <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque aliquam aliquid porro!</p> -->
+		<button type="button" class="btn"> <a style="text-decoration: none; font-weight: 800; color: #f5efef;" href="#">  KNOW MORE</button></a>
+	</div>
+	
+	<div class="social-icons">
+		<div class="icon">
+			<a href=" https://wa.me/#"><i class="fab fa-whatsapp"></i></a>            
+			<!-- <h4>Whatsapp</h4> -->
+			<p style="margin-top: 10px;">Whatsapp</p>
+		</div>
+        
+		<div class="icon">
+      <a href="tel:#"><i class  ="fas fa-phone fa-flip-horizontal"></i></a>
+      <!-- <h4>call</h4> -->
+      <p style="margin-top: 10px;">Call</p>
+		</div>
+		
+		<div class="icon">
+			<a href="mailto:#"><i class="fas fa-envelope"></i></a>
+      <!-- <h4>E-mail</h4> -->
+      <p style="margin-top: 10px;">E-mail</p>
+    </div>
+
+    <div class="icon" id="downloadVCard">
+      <a href=""><i class="fas fa-address-book"></i></a>
+      <!-- <h4>contact</h4> -->
+      <p style="margin-top: 10px;">Contact</p>
+    </div>
+
+    <div class="icon">
+      <a href="#"><i class="fas fa-file-alt"></i></a>
+      <!-- <h4>brochure</h4> -->
+      <p style="margin-top: 10px;">Brochure</p>
+    </div>
+
+    <div class="icon" id="shareButton">
+      <a href=""><i class="fas fa-share"></i></a>
+      <!-- <h4>share</h4> -->
+      <p style="margin-top: 10px;">Share</p>
+    </div>
+    <div class="icon">
+      <a href="#"><i class="fab fa-facebook"></i></a>
+      <!-- <h4>facebook</h4> -->
+      <p style="margin-top: 10px;">facebook</p>
+    </div>
+    <div class="icon">
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <!-- <h4>Instagram</h4> -->
+      <p style="margin-top: 10px;">Instagram</p>
+    </div>
+    <div class="icon">
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+      <!-- <h4>linkedin</h4> -->
+      <p style="margin-top: 10px;">Linkedin</p>
+    </div>
+	</div>
+
+
+
+    
+</div>
+
+<div class="concept">concept by 
+	<a href="#" target="_blank">
+		<i class="fab fa-dribbble"></i> Aurify
+	</a>
+</div>
+
+
+<script>
+  // Add a click event listener to the share icon
+  document.getElementById('shareIcon').addEventListener('click', function() {
+      // Replace the alert with your actual share functionality
+      alert('Share functionality goes here!');
+  });
+
+  document.body.classList.toggle('dark-mode', /* Your logic to determine dark mode */);
+
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var saveBtn = document.getElementById("downloadVCard");
+  
+    if (saveBtn) {
+      saveBtn.addEventListener("click", function () {
+        var contact = {
+          name: "Aibak Gold and Diamonds",
+          phone: "+91000",
+          email: ""
+        };
+  
+        var vcard =
+          "BEGIN:VCARD\nVERSION:3.0\nFN:" +
+          contact.name +
+          "\nTEL;TYPE=work,voice:" +
+          contact.phone +
+          "\nEMAIL:" +
+          contact.email +
+          "\nEND:VCARD";
+  
+        var blob = new Blob([vcard], { type: "text/vcard" });
+        if (navigator.msSaveBlob) {
+          // For IE and Edge
+          navigator.msSaveBlob(blob, contact.name + ".vcf");
+        } else {
+          // For other browsers
+          var link = document.createElement("a");
+          link.href = window.URL.createObjectURL(blob);
+          link.setAttribute("download", contact.name + ".vcf");
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }
+      });
+    }
+  });
+  
+      </script>
+<script>
+        document.getElementById('shareButton').addEventListener('click', function() {
+            if (navigator.share) {
+                // Use the Web Share API
+                navigator.share({
+                    title: document.title,
+                    text: 'Check out this link:',
+                    url: window.location.href
+                })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing:', error));
+            } else {
+                // Fallback for browsers that do not support Web Share API
+                alert('Web Share API is not supported on this browser. You can manually share the URL.');
+            }
+        });
+    </script>
+</body>
+</html>
