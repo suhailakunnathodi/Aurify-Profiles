@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asteron</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+
+<style>
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  position: relative;
+  background: #eeeeec;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  font-family: "Open Sans", sans-serif;
+  font-size: 100%;
+}
+
+
+.customSlider {
+
+  opacity: 0;
+  display: none;
+}
+.customSlider + label {
+  position: relative;
+  top: 12%;
+  left: 40%;
+  cursor: pointer;
+  z-index: 1;
+  
+}
+
+.customSlider + label:before, .customSlider + label:after {
+  background: #FFFFFF;
+  position: absolute;
+  content: "";
+}
+.customSlider + label:before {
+  top: -90px;
+  left: -60px;
+  width: 60px;
+  height: 30px;
+  background: #ccc;
+  border-radius: 20px;
+  transition: background 0.75s;
+}
+.customSlider + label:after {
+  height: 24px;
+  width: 24px;
+  top: -87px;
+  left: -55px;
+  border-radius: 50%;
+  transition: all 0.5s;
+}
+.customSlider:checked + label:after {
+  height: 24px;
+  width: 24px;
+  top: -87px;
+  left: -28px;
+  border-radius: 50%;
+}
+
+.customSlider:checked ~ .wrapper {
+  color: #fff;
+  transition: background 0.6s ease;
+  background: #31394D;
+}
+.customSlider:checked ~ .wrapper .top-icons i {
+  color: #fff;
+}
+.customSlider:checked ~ .wrapper .profile .name {
+  color: #FDFEFF;
+}
+.customSlider:checked ~ .wrapper .profile .title {
+  color: #7C8097;
+}
+.customSlider:checked ~ .wrapper .profile .description {
+  color: #FDFEFF;
+}
+.customSlider:checked ~ .wrapper .icon h4 {
+  color: #FFFFFF;
+}
+.customSlider:checked ~ .wrapper .icon p {
+  color: #666B7D;
+}
+.customSlider:checked ~ .wrapper .profile img {
+    content: url('./logos/tecnavis/tecnavis\ logo.png'); /* Replace with the new image URL */
+}
+
+
+.wrapper {
+  position: relative;
+  width: 90%;
+  height: 90%;
+  /* background-color: #080911; */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+  overflow: hidden; /* Ensures the background doesn't overflow */
+}
+
+.background-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(./6942219.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.8; /* Adjust the opacity as needed */
+  z-index: -1; /* Ensure the background stays behind other content */
+  transition: opacity 0.6s ease; /* Add transition effect */
+}
+
+
+.wrapper .top-icons i {
+  color: #080911;
+}
+.wrapper .top-icons i:nth-of-type(1) {
+  float: left;
+}
+.wrapper .top-icons i:nth-of-type(2) {
+  float: right;
+}
+.wrapper .top-icons i:nth-of-type(3) {
+  float: right;
+  padding-right: 0.8em;
+}
+.wrapper .profile {
+  margin-top: 2.2em;
+  position: relative;
+}
+.wrapper .profile:after {
+  width: 100%;
+  height: 1px;
+  content: " ";
+  display: block;
+  margin-top: 1.3em;
+  background: #E9EFF6;
+}
+.wrapper .profile .check {
+  position: absolute;
+  right: 5em;
+  bottom: 12.7em;
+}
+.wrapper .profile .check i {
+  color: rgb(134, 95, 5);
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 100%;
+  background: linear-gradient(to bottom right, rgb(235, 180, 41), rgb(182, 155, 3));
+}
+.wrapper .profile .thumbnail {
+  width: 124px;
+  height: 124px;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.5em;
+  border-radius: 100%;
+  box-shadow: 0 13px 26px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+.wrapper .profile .name {
+  color: brown;
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+
+}
+.wrapper .profile .title {
+  color: goldenrod;
+  font-size: 0.75em;
+  font-weight: 400;
+  text-align: center;
+  padding-top: 0.5em;
+  padding-bottom: 0.7em;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.wrapper .profile .description {
+  color: #080911;
+  font-size: 14px;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 1.3em;
+}
+.wrapper .profile .btn {
+  color: brown;
+  width: 130px;
+  height: 42px;
+  outline: none;
+  border: 2px solid brown;
+  display: block;
+  cursor: pointer;
+  font-weight: 300;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 70px;
+  box-shadow: 0 13px 26px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16);
+  background: linear-gradient(to bottom right, #0ac966, #029d40);
+}
+.wrapper .social-icons {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 1.2em;
+  justify-content: space-between;
+}
+.wrapper .social-icons .icon {
+  width: 30%; /* Adjust the width as needed */
+  margin-bottom: 1.2em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.wrapper .social-icons .icon a {
+  color: rgb(134, 95, 5);
+  width: 60px;
+  height: 60px;
+  font-size: 28px;
+  line-height: 60px;
+  text-align: center;
+  border: 2px solid brown;
+  border-radius: 30px;
+  box-shadow: 0 13px 26px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+.wrapper .social-icons .icon:nth-of-type(1) a {
+  background: linear-gradient(to bottom right, rgb(235, 180, 41), rgb(182, 155, 3));
+}
+.wrapper .social-icons .icon:nth-of-type(2) a {
+  background: linear-gradient(to bottom right, rgb(235, 180, 41), rgb(182, 155, 3));
+}
+.wrapper .social-icons .icon:nth-of-type(3) a {
+  background: linear-gradient(to bottom right, rgb(235, 180, 41), rgb(182, 155, 3));
+}
+.wrapper .social-icons .icon:nth-of-type(4) a {
+  background: linear-gradient(to bottom right, rgb(235, 180, 41), rgb(182, 155, 3));
+}
+.wrapper .social-icons .icon:nth-of-type(5) a {
+  background: linear-gradient(to bottom right, rgb(235, 180, 41), rgb(182, 155, 3));
+}
+.wrapper .social-icons .icon:nth-of-type(6) a {
+  background: linear-gradient(to bottom right, rgb(235, 180, 41), rgb(182, 155, 3));
+}
+.wrapper .social-icons .icon:nth-of-type(7) a {
+  background: linear-gradient(to bottom right, rgb(235, 180, 41), rgb(182, 155, 3));
+}
+.wrapper .social-icons .icon:nth-of-type(8) a {
+  background: linear-gradient(to bottom right, rgb(235, 180, 41), rgb(182, 155, 3));
+}
+.wrapper .social-icons .icon:nth-of-type(9) a {
+  background: linear-gradient(to bottom right, rgb(235, 180, 41), rgb(182, 155, 3));
+}
+
+.wrapper .social-icons .icon h4 {
+  color: #080911;
+  font-size: 1em;
+  margin-top: 1.3em;
+  margin-bottom: 0.2em;
+}
+.wrapper .social-icons .icon p {
+  color: black;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.concept {
+  position: absolute;
+  bottom: 12px;
+  color: #AAB0C4;
+  font-size: 0.9em;
+  font-weight: 400;
+}
+.concept a {
+  color: #ac1966;
+  text-decoration: none;
+}
+
+body.dark-mode img {
+            filter: invert(1);
+        }
+</style>
+    
+</head>
+<body>
+  
+  
+  <!-- <input id="slider" class="customSlider" type="checkbox">
+  <label for="slider"></label> -->
+
+<div class="wrapper">
+	<!-- <div class="top-icons">
+		<i class="fas fa-long-arrow-alt-left"></i>
+		<i class="fas fa-ellipsis-v"></i>
+		<i class="far fa-heart"></i>
+	</div> -->
+  <div class="background-image"></div>
+	<div class="profile">
+
+
+    
+
+		<center><img src  ="./logos/asteron.-3d...png"  style="height: 150px; margin-bottom: 10px; "></center>
+    <!-- class="thumbnail"> -->
+		<!-- <div class="check"><i class="fas fa-check"></i></div> -->
+    <div style="display: flex;justify-content: center;align-items: center;">
+		<h3 class="name" style="font-weight: 800;font-family:Georgia, 'Times New Roman', Times, serif">Asteron Jewellery trading LLC</h3>
+    <!-- <img src="./icons8-blue-tick-48.png" height="20px" style="margin-left: 8px;"> -->
+  </div>
+		<p class="title">Gold Souq ,Deira ,Dubai - UAE</p>
+		<!-- <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque aliquam aliquid porro!</p> -->
+		<button type="button" class="btn"> <a style="text-decoration: none; font-weight: 800; color: #f5efef;" href="https://wa.me/971505405081">  WhatsApp</button></a>
+	</div>
+	
+	<div class="social-icons">
+		<div class="icon">
+      <a href="tel:00971505405081"><i class  ="fas fa-phone fa-flip-horizontal"></i></a>
+      <!-- <h4>call</h4> -->
+      <p style="margin-top: 10px;">Call</p>
+		</div>
+		
+		<div class="icon">
+			<a href="mailto:asteronjewelsuae@gmail.com"><i class="fas fa-envelope"></i></a>
+      <!-- <h4>E-mail</h4> -->
+      <p style="margin-top: 10px;">E-mail</p>
+    </div>
+
+    <div class="icon" id="downloadVCard">
+      <a href=""><i class="fas fa-address-book"></i></a>
+      <!-- <h4>contact</h4> -->
+      <p style="margin-top: 10px;">Contact</p>
+    </div>
+    <div class="icon" id="downloadVCard">
+        <a href="https://www.asteronbullion.com/"><i class="fas fa-globe"></i></a>
+        <!-- <h4>contact</h4> -->
+        <p style="margin-top: 10px;">Website</p>
+      </div>
+
+
+    <!-- <div class="icon">
+      <a href="https://www.facebook.com/udkhan1234?mibextid=LQQJ4d"><i class="fab fa-facebook"></i></a>
+   
+      <p style="margin-top: 10px;">facebook</p>
+    </div>
+    <div class="icon">
+      <a href="https://www.snapchat.com/add/mohsink1243?share_id=TUcRAO1ZQBq4kryC-f2K5g&locale=en_AE"><i class="fab fa-snapchat"></i></a>
+      
+      <p style="margin-top: 10px;">snapchat</p>
+    </div>
+    <div class="icon">
+      <a href="https://twitter.com/realmohsin_khan"><svg xmlns="http://www.w3.org/2000/svg" height="28" width="28" viewBox="0 0 512 512"><path fill="#ffffff" d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg></a>
+   
+      <p style="margin-top: 10px;">Twitter</p>
+    </div>
+    <div class="icon">
+      <a href="https://www.instagram.com/mohsin_kha_nn/?ref=post"><i class="fab fa-instagram"></i></a>
+   
+      <p style="margin-top: 10px;">Instagram</p>
+    </div> -->
+    <div class="icon" id="shareButton">
+      <a href=""><i class="fas fa-share"></i></a>
+      <!-- <h4>share</h4> -->
+      <p style="margin-top: 10px;">Share</p>
+    </div>
+	</div>
+
+
+
+    
+</div>
+
+<div class="concept">concept by 
+	<a href="#" target="_blank">
+		<i class="fab fa-dribbble"></i> Aurify
+	</a>
+</div>
+
+
+<script>
+  // Add a click event listener to the share icon
+  document.getElementById('shareIcon').addEventListener('click', function() {
+      // Replace the alert with your actual share functionality
+      alert('Share functionality goes here!');
+  });
+
+  document.body.classList.toggle('dark-mode', /* Your logic to determine dark mode */);
+
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    var saveBtn = document.getElementById("downloadVCard");
+  
+    if (saveBtn) {
+      saveBtn.addEventListener("click", function () {
+        var contact = {
+          name: "Asteron jewellery Trading LLC",
+          phone: "971505405081",
+          email: "asteronjewelsuae@gmail.com"
+        };
+  
+        var vcard =
+          "BEGIN:VCARD\nVERSION:3.0\nFN:" +
+          contact.name +
+          "\nTEL;TYPE=work,voice:" +
+          contact.phone +
+          "\nEMAIL:" +
+          contact.email +
+          "\nEND:VCARD";
+  
+        var blob = new Blob([vcard], { type: "text/vcard" });
+        if (navigator.msSaveBlob) {
+          // For IE and Edge
+          navigator.msSaveBlob(blob, contact.name + ".vcf");
+        } else {
+          // For other browsers
+          var link = document.createElement("a");
+          link.href = window.URL.createObjectURL(blob);
+          link.setAttribute("download", contact.name + ".vcf");
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        }
+      });
+    }
+  });
+  
+      </script>
+<script>
+        document.getElementById('shareButton').addEventListener('click', function() {
+            if (navigator.share) {
+                // Use the Web Share API
+                navigator.share({
+                    title: document.title,
+                    text: 'Check out this link:',
+                    url: window.location.href
+                })
+                .then(() => console.log('Successful share'))
+                .catch((error) => console.log('Error sharing:', error));
+            } else {
+                // Fallback for browsers that do not support Web Share API
+                alert('Web Share API is not supported on this browser. You can manually share the URL.');
+            }
+        });
+    </script>
+</body>
+</html>
