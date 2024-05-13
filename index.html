@@ -1,177 +1,519 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="author" content="Mohammad Sahragard" />
-    <title>Aurify</title>
-    <!-- import font icon (fontawesome) -->
-    <script
-      src="https://kit.fontawesome.com/b8b432d7d3.js"
-      crossorigin="anonymous"
-    ></script>
-    <!-- import css file (style.css) -->
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="container">
-      <div class="profile-card">
-        <div class="profile-header">
-          <!-- profile header section -->
-          <div class="main-profile">
-            <div class="profile-image"></div>
-            <div class="profile-names">
-              <h1 class="username">AURIFY</h1>
-              <small class="page-title">Metal trade platform</small>
-            </div>
-          </div>
-        </div>
 
-        <div class="profile-body">
-          <!-- profile body section -->
-          <div class="profile-actions">
-            <button
-              class="follow"
-              onclick="window.location.href='tel:your_phone_number'"
-            >
-              <i class="fas fa-phone"></i> Contact
-            </button>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tecnavis web solutions</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
 
-            <button
-              class="message"
-              onclick="window.location.href='https://wa.me/your_whatsapp_number'"
-            >
-              <i class="fab fa-whatsapp"></i> WhatsApp
-            </button>
-            <section class="bio">
-              <div class="bio-header" style="margin-left: 10px">
-                <i class="fas fa-map-marker-alt"></i>
-                Address
-              </div>
-              <p class="bio-text">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-              </p>
-            </section>
-          </div>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-          <div class="account-info" >
-            <div class="data">
-              <!-- <div class="important-data">
-                            <section class="data-item">
-                                <h3 class="value">104</h3>
-                                <small class="title">Post</small>
-                            </section>
-                            <section class="data-item">
-                                <h3 class="value">21K</h3>
-                                <small class="title">Follower</small>
-                            </section>
-                            </section>
-                            <section class="data-item">
-                                <h3 class="value">51</h3>
-                                <small class="title">Following</small>
-                            </section>
-                        </div> -->
-              <!-- <div class="other-data">
-                            <section class="data-item">
-                                <h3 class="value">41K</h3>
-                                <small class="title">Likes</small>
-                            </section>
-                            <section class="data-item">
-                                <h3 class="value">12K</h3>
-                                <small class="title">Comments</small>
-                            </section>
-                            <section class="data-item">
-                                <h3 class="value">2K</h3>
-                                <small class="title">Saved</small>
-                            </section>
-                        </div> -->
+    body {
+      width: 100%;
+      height: 102vh;
+      display: flex;
+      position: relative;
+      background: #eeeeec;
+      align-items: center;
+      flex-direction: column;
+      justify-content: center;
+      font-family: "Open Sans", sans-serif;
+      font-size: 100%;
+    }
 
-              <h3 >About Us</h3>
-              <p >
-                To empower businesses and individuals in optimizing their metal
-                trading strategies, providing unparalleled service, and
-                contributing to the growth of the global metal industry.
-              </p>
-            </div>
-            <div class="social-media" >
-              <span>Follow me in:</span>
-              <a href="" class="media-link"
-                ><i class="fab fa-facebook-square"></i
-              ></a>
-              <a href="https://twitter.com/" class="media-link"
-                ><i class="fab fa-twitter-square"></i
-              ></a>
-              <a
-                href="https://www.linkedin.com/in/"
-                class="media-link"
-                ><i class="fab fa-linkedin"></i
-              ></a>
-              <a
-                href="https://www.instagram.com/"
-                class="media-link"
-                ><i class="fab fa-instagram-square"></i
-              ></a>
-              <a href="https://github.com/" class="media-link"
-                ><i class="fab fa-github-square"></i
-              ></a>
-            </div>
 
-            <div class="last-post" >
-              <div class="post-cover">
-                <span class="last-badge">Last Post</span>
-              </div>
-              <h3 class="post-title">3D layer</h3>
-              <button class="post-CTA">View</button>
-            </div>
-            <div class="vcard"  style="display: flex;justify-content: center;">
-                <a id="save-btn" href="#" style="text-decoration: none;width: 100%;"><button class="post-CTA">Save V-card</button></a>
-              </div>
-          </div>
-        </div>
-        <footer style="text-align: center" >
-          <p style="color: aliceblue; display: inline">
-            &copy; 2024
-            <a
-              href="https://www.Tecnavis.com"
-              style="text-decoration: none; color:rgb(166, 204, 241);" 
-              target="_blank" 
-              >Tecnavis </a
-            > All rights reserved.
-          </p>
-        </footer>
+    .customSlider {
+
+      opacity: 0;
+      display: none;
+    }
+
+    .customSlider+label {
+      position: relative;
+      top: 12%;
+      left: 40%;
+      cursor: pointer;
+      z-index: 1;
+
+    }
+
+    .customSlider+label:before,
+    .customSlider+label:after {
+      background: #FFFFFF;
+      position: absolute;
+      content: "";
+    }
+
+    .customSlider+label:before {
+      top: -90px;
+      left: -60px;
+      width: 60px;
+      height: 30px;
+      background: #ccc;
+      border-radius: 20px;
+      transition: background 0.75s;
+    }
+
+    .customSlider+label:after {
+      height: 24px;
+      width: 24px;
+      top: -87px;
+      left: -55px;
+      border-radius: 50%;
+      transition: all 0.5s;
+    }
+
+    .customSlider:checked+label:after {
+      height: 24px;
+      width: 24px;
+      top: -87px;
+      left: -28px;
+      border-radius: 50%;
+    }
+
+    .customSlider:checked~.wrapper {
+      color: #fff;
+      transition: background 0.6s ease;
+      background: #31394D;
+    }
+
+    .customSlider:checked~.wrapper .top-icons i {
+      color: #fff;
+    }
+
+    .customSlider:checked~.wrapper .profile .name {
+      color: #FDFEFF;
+    }
+
+    .customSlider:checked~.wrapper .profile .title {
+      color: #7C8097;
+    }
+
+    .customSlider:checked~.wrapper .profile .description {
+      color: #FDFEFF;
+    }
+
+    .customSlider:checked~.wrapper .icon h4 {
+      color: #FFFFFF;
+    }
+
+    .customSlider:checked~.wrapper .icon p {
+      color: #666B7D;
+    }
+
+    .customSlider:checked~.wrapper .profile img {
+      content: url('./aurify-wh.png');
+      /* Replace with the new image URL */
+    }
+
+
+    .wrapper {
+      position: relative;
+      width: 90%;
+      height: 90%;
+      background: #FDFEFF;
+      transition: background 0.6s ease;
+      border-radius: 10px;
+      padding: 20px 20px 20px 20px;
+      box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+    }
+
+
+    .wrapper .top-icons i {
+      color: #080911;
+    }
+
+    .wrapper .top-icons i:nth-of-type(1) {
+      float: left;
+    }
+
+    .wrapper .top-icons i:nth-of-type(2) {
+      float: right;
+    }
+
+    .wrapper .top-icons i:nth-of-type(3) {
+      float: right;
+      padding-right: 0.8em;
+    }
+
+    .wrapper .profile {
+      margin-top: 2.2em;
+      position: relative;
+    }
+
+    .wrapper .profile:after {
+      width: 100%;
+      height: 1px;
+      content: " ";
+      display: block;
+      margin-top: 1.3em;
+      background: #E9EFF6;
+    }
+
+    .wrapper .profile .check {
+      position: absolute;
+      right: 5em;
+      bottom: 12.7em;
+    }
+
+    .wrapper .profile .check i {
+      color: #fff;
+      width: 20px;
+      height: 20px;
+      font-size: 12px;
+      line-height: 20px;
+      text-align: center;
+      border-radius: 100%;
+      background: linear-gradient(to bottom right, #C90A6D, #FF48A0);
+    }
+
+    .wrapper .profile .thumbnail {
+      width: 124px;
+      height: 124px;
+      display: flex;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 1.5em;
+      border-radius: 100%;
+      box-shadow: 0 13px 26px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .wrapper .profile .name {
+      color: #2D354A;
+      font-size: 24px;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    .wrapper .profile .title {
+      color: #7C8097;
+      font-size: 0.75em;
+      font-weight: 300;
+      text-align: center;
+      padding-top: 0.5em;
+      padding-bottom: 0.7em;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .wrapper .profile .description {
+      color: #080911;
+      font-size: 14px;
+      font-weight: 300;
+      text-align: center;
+      margin-bottom: 1.3em;
+    }
+
+    .wrapper .profile .btn {
+      color: #fff;
+      width: 130px;
+      height: 42px;
+      outline: none;
+      border: none;
+      display: block;
+      cursor: pointer;
+      font-weight: 300;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 70px;
+      box-shadow: 0 13px 26px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16);
+      background: linear-gradient(to bottom right, #C90A6D, #FF48A0);
+    }
+
+    .wrapper .social-icons {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 1.2em;
+      justify-content: space-between;
+    }
+
+    .wrapper .social-icons .icon {
+      width: 30%;
+      /* Adjust the width as needed */
+      margin-bottom: 1.2em;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .wrapper .social-icons .icon a {
+      color: #fff;
+      width: 60px;
+      height: 60px;
+      font-size: 28px;
+      line-height: 60px;
+      text-align: center;
+      border-radius: 30px;
+      box-shadow: 0 13px 26px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    .wrapper .social-icons .icon:nth-of-type(1) a {
+      background: linear-gradient(to bottom right, #12da55, #3bd443);
+    }
+
+    .wrapper .social-icons .icon:nth-of-type(2) a {
+      background: linear-gradient(to bottom right, #5E5AEC, #3F9EFC);
+    }
+
+    .wrapper .social-icons .icon:nth-of-type(3) a {
+      background: linear-gradient(to bottom right, #bee041, #adfd70);
+    }
+
+    .wrapper .social-icons .icon:nth-of-type(4) a {
+      background: linear-gradient(to bottom right, #e9c652, #e9c652);
+    }
+
+    .wrapper .social-icons .icon:nth-of-type(5) a {
+      background: linear-gradient(to bottom right, #ee3608, #cc137f);
+    }
+
+    .wrapper .social-icons .icon:nth-of-type(6) a {
+      background: linear-gradient(to bottom right, #6567d6, #8075e7);
+    }
+
+    .wrapper .social-icons .icon:nth-of-type(7) a {
+      background: linear-gradient(to bottom right, #ce33c6, #db80bd);
+    }
+
+    .wrapper .social-icons .icon:nth-of-type(8) a {
+      background: linear-gradient(to bottom right, #dd1562, #e6328c);
+    }
+
+    .wrapper .social-icons .icon:nth-of-type(9) a {
+      background: linear-gradient(to bottom right, #1f9be8, #4caae4);
+    }
+
+    .wrapper .social-icons .icon h4 {
+      color: #080911;
+      font-size: 1em;
+      margin-top: 1.3em;
+      margin-bottom: 0.2em;
+    }
+
+    .wrapper .social-icons .icon p {
+      color: #666B7D;
+      font-size: 12px;
+    }
+
+    .concept {
+      position: absolute;
+      bottom: 12px;
+      color: #AAB0C4;
+      font-size: 0.9em;
+      font-weight: 400;
+    }
+
+    .concept a {
+      color: #ac1966;
+      text-decoration: none;
+    }
+
+    body.dark-mode img {
+      filter: invert(1);
+    }
+
+    .wrapper .buttons {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .wrapper .buttons div {
+      max-width: 400px;
+      width: 90%;
+      height: auto;
+      background-color: #5F7897;
+      margin: 6px;
+      border-radius: 10px;
+    }
+
+    .wrapper .buttons div a,
+    p {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.3em;
+      color: #fff;
+      padding: 10px;
+      text-decoration: none;
+    }
+  </style>
+
+</head>
+
+<body>
+
+
+  <input id="slider" class="customSlider" type="checkbox">
+  <label for="slider"></label>
+
+  <div class="wrapper">
+    <!-- <div class="top-icons">
+		<i class="fas fa-long-arrow-alt-left"></i>
+		<i class="fas fa-ellipsis-v"></i>
+		<i class="far fa-heart"></i>
+	</div> -->
+
+    <div class="profile">
+
+
+
+
+      <center><img src="./AURIFY-2-png.png" style="height: 200px; width: 200px ;margin-bottom: 0px; ">
+      </center>
+      <!-- class="thumbnail"> -->
+      <!-- <div class="check"><i class="fas fa-check"></i></div> -->
+      <h3 class="name" style="font-weight: 800;">AURIFY</h3>
+      <p class="title">Metal trade platform</p>
+      <!-- <p class="description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque aliquam aliquid porro!</p> -->
+      <button type="button" class="btn"> <a style="text-decoration: none; font-weight: 800; color: #f5efef;"
+          href="https://tecnavis.github.io/Aurify/"> KNOW MORE</button></a>
+    </div>
+
+    <div class="social-icons">
+      <div class="icon">
+        <a href="https://wa.me/971585023411"><i class="fab fa-whatsapp"></i></a>
+        <!-- <h4>Whatsapp</h4> -->
+        <p style="margin-top: 10px;">Whatsapp</p>
+      </div>
+
+      <div class="icon">
+        <a href="tel:+971585023411"><i class="fas fa-phone fa-flip-horizontal"></i></a>
+        <!-- <h4>call</h4> -->
+        <p style="margin-top: 10px;">Call</p>
+      </div>
+
+      <div class="icon">
+        <a href="mailto:ajmal@naherit.com"><i class="fas fa-envelope"></i></a>
+        <!-- <h4>E-mail</h4> -->
+        <p style="margin-top: 10px;">E-mail</p>
+      </div>
+
+      <div class="icon" id="downloadVCard">
+        <a href=""><i class="fas fa-address-book"></i></a>
+        <p style="margin-top: 10px;">Contact</p>
+      </div>
+
+      <div class="icon" id="shareButton">
+        <a href=""><i class="fas fa-share"></i></a>
+        <p style="margin-top: 10px;">Share</p>
+      </div>
+
+      <!-- <div class="icon">
+        <a href="https://drive.google.com/file/d/1DNE7HIGCVt4yjeIglGCz3ivyXArltDG-/view?usp=sharing"><i
+            class="fas fa-file-alt"></i></a>
+        <p style="margin-top: 10px;">Brochure</p>
+      </div>
+
+      <div class="icon">
+        <a href="https://www.facebook.com/profile.php?id=61555737712713&mibextid=ZbWKwL"><i
+            class="fab fa-facebook"></i></a>
+        <p style="margin-top: 10px;">facebook</p>
+      </div>
+      <div class="icon">
+        <a href="https://www.instagram.com/tecnavis/?igsh=bTgxN3NlajZuMXps"><i class="fab fa-instagram"></i></a>
+        <p style="margin-top: 10px;">Instagram</p>
+      </div>
+      <div class="icon">
+        <a href="https://www.linkedin.com/company/tecnavis-web-solutions-pvt-ltd/mycompany/verification/"><i
+            class="fab fa-linkedin"></i></a>
+        <p style="margin-top: 10px;">Linkedin</p>
+      </div> -->
+    </div>
+    <div class="buttons">
+      <div>
+        <a href="https://view1.aurify.ae/">View Live Rate</a>
+      </div>
+      <div>
+        <a href="">Scratch Card</a>
       </div>
     </div>
-    <script>
+  </div>
 
-  document.addEventListener("DOMContentLoaded", function () {
-  var saveBtn = document.getElementById("save-btn");
+  <div class="concept">
+    <footer style="text-align: center">
+      <p style="color: black; display: inline">
+        &copy; 2024
+        <a href="https://www.Tecnavis.com" style="text-decoration: none; color:rgb(0, 128, 255);"
+          target="_blank">Tecnavis </a> All rights reserved.
+      </p>
+    </footer>
+  </div>
 
-  if (saveBtn) {
-    saveBtn.addEventListener("click", function () {
-      var contact = {
-        name: "Ajmal",
-      phone: "971585023411",
-      email: "ajmal@naherit.com"
-      };
 
-      var vcard =
-        "BEGIN:VCARD\nVERSION:4.0\nFN:" +
-        contact.name +
-        "\nTEL;TYPE=work,voice:" +
-        contact.phone +
-        "\nEMAIL:" +
-        contact.email +
-        "\nEND:VCARD";
-
-      var blob = new Blob([vcard], { type: "text/vcard" });
-      var url = URL.createObjectURL(blob);
-
-      saveBtn.href = url;
-      saveBtn.download = contact.name + ".vcf";
+  <script>
+    // Add a click event listener to the share icon
+    document.getElementById('shareIcon').addEventListener('click', function () {
+      // Replace the alert with your actual share functionality
+      alert('Share functionality goes here!');
     });
-  }
-});
-      </script>
-  </body>
+
+    document.body.classList.toggle('dark-mode', /* Your logic to determine dark mode */);
+
+  </script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var saveBtn = document.getElementById("downloadVCard");
+
+      if (saveBtn) {
+        saveBtn.addEventListener("click", function () {
+          var contact = {
+            name: "Ajmal",
+            phone: "971585023411",
+            email: "ajmal@naherit.com"
+          };
+
+          var vcard =
+            "BEGIN:VCARD\nVERSION:4.0\nFN:" +
+            contact.name +
+            "\nTEL;TYPE=work,voice:" +
+            contact.phone +
+            "\nEMAIL:" +
+            contact.email +
+            "\nEND:VCARD";
+
+          var blob = new Blob([vcard], { type: "text/vcard" });
+          if (navigator.msSaveBlob) {
+            // For IE and Edge
+            navigator.msSaveBlob(blob, contact.name + ".vcf");
+          } else {
+            // For other browsers
+            var link = document.createElement("a");
+            link.href = window.URL.createObjectURL(blob);
+            link.setAttribute("download", contact.name + ".vcf");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          }
+        });
+      }
+    });
+
+  </script>
+  <script>
+    document.getElementById('shareButton').addEventListener('click', function () {
+      if (navigator.share) {
+        // Use the Web Share API
+        navigator.share({
+          title: document.title,
+          text: 'Check out this link:',
+          url: window.location.href
+        })
+          .then(() => console.log('Successful share'))
+          .catch((error) => console.log('Error sharing:', error));
+      } else {
+        // Fallback for browsers that do not support Web Share API
+        alert('Web Share API is not supported on this browser. You can manually share the URL.');
+      }
+    });
+  </script>
+</body>
+
 </html>
