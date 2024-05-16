@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <title>Tawasel</title>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
     <style>
         @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700&subset=latin-ext');
@@ -388,15 +389,15 @@
       
           <div class="profile-card__cnt js-profile-cnt">
             <div class="profile-card__name">Tawasel</div>
-            <!-- <div class="profile-card__txt">Front-end Developer from <strong>Mesopotamia</strong></div> -->
+            <div class="profile-card__txt"><strong>Sabith</strong> <br>  <svg class="icon"><use xlink:href="#icon-location"></use></svg>Dubai, UAE</div>
             <div class="profile-card-loc">
-              <span class="profile-card-loc__icon">
+              <!-- <span class="profile-card-loc__icon">
                 <svg class="icon"><use xlink:href="#icon-location"></use></svg>
-              </span>
+              </span> -->
       
-              <span class="profile-card-loc__txt">
+              <!-- <span class="profile-card-loc__txt">
                 Dubai, UAE
-              </span>
+              </span> -->
             </div>
       
             <!-- <div class="profile-card-inf">
@@ -422,7 +423,7 @@
             </div> -->
       
             <div class="profile-card-social">
-              <a href="" class="profile-card-social__item facebook" target="_blank">
+              <a href="+971 58 548 5728" class="profile-card-social__item facebook" target="_blank">
                 <span class="icon-font">
                     <i class="fa fa-phone"></i>
                 </span>
@@ -430,13 +431,13 @@
       
               <a href="" class="profile-card-social__item twitter" target="_blank">
                 <span class="icon-font">
-					<i class="fa-brands fa-whatsapp"></i>
+                    <i class="fa-brands fa-whatsapp"></i>
                 </span>
               </a>
       
-              <a href="altawaseljewelleryllc@gmail.com" class="profile-card-social__item instagram" target="_blank">
+              <a href="abdulsalam206367@gmail.com" class="profile-card-social__item instagram" target="_blank">
                 <span class="icon-font">
-					<i class="fa fa-envelope"></i>
+                    <i class="fa fa-envelope"></i>
                 </span>
               </a>
       
@@ -572,65 +573,6 @@
           card.classList.remove('active');
       });
   });
-
-
-
-
-    document.addEventListener("DOMContentLoaded", function () {
-      var saveBtn = document.getElementById("downloadVCard");
-    
-      if (saveBtn) {
-        saveBtn.addEventListener("click", function () {
-          var contact = {
-            name: "",
-            phone: "",
-            email: ""
-          };
-    
-          var vcard =
-            "BEGIN:VCARD\nVERSION:3.0\nFN:" +
-            contact.name +
-            "\nTEL;TYPE=work,voice:" +
-            contact.phone +
-            "\nEMAIL:" +
-            contact.email +
-            "\nEND:VCARD";
-    
-          var blob = new Blob([vcard], { type: "text/vcard" });
-          if (navigator.msSaveBlob) {
-            // For IE and Edge
-            navigator.msSaveBlob(blob, contact.name + ".vcf");
-          } else {
-            // For other browsers
-            var link = document.createElement("a");
-            link.href = window.URL.createObjectURL(blob);
-            link.setAttribute("download", contact.name + ".vcf");
-            document.body.appendChild(link);
-            link.click();
-            document.body.removeChild(link);
-          }
-        });
-      }
-    });
-    
-
-        document.getElementById('shareButton').addEventListener('click', function() {
-            if (navigator.share) {
-                // Use the Web Share API
-                navigator.share({
-                    title: document.title,
-                    text: 'Check out this link:',
-                    url: window.location.href
-                })
-                .then(() => console.log('Successful share'))
-                .catch((error) => console.log('Error sharing:', error));
-            } else {
-                // Fallback for browsers that do not support Web Share API
-                alert('Web Share API is not supported on this browser. You can manually share the URL.');
-            }
-        });
-
-  
       </script>
 </body>
 </html>
