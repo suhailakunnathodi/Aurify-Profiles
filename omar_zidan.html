@@ -116,6 +116,8 @@ body {
             background-size: cover; 
             background-position: center; 
    */
+   position: relative;
+  min-height: 100vh;
 }
 
 
@@ -277,13 +279,16 @@ body {
 }
 
 .concept {
-  position: absolute;
+  position: fixed;
   bottom: 12px;
+  width: 100%;
   color: #AAB0C4;
   font-size: 0.9em;
   font-weight: 400;
-  margin-bottom: -60px;
+  text-align: center; /* Optional: Centers the text horizontally */
+  z-index: 1000; /* Optional: Ensures the element stays on top of other content */
 }
+
 .concept a {
   color: #ac1966;
   text-decoration: none;
