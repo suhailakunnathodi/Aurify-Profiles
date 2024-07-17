@@ -86,16 +86,38 @@
       border-radius: 0 0 8px 8px;
       cursor: pointer;
     }
+
+   @keyframes jump {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px); /* Adjust the height of the jump */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.jump-logo {
+    display: inline-block;
+    animation: jump 1s ease; /* Duration and timing function of the jump */
+    animation-iteration-count: 1; /* Ensures the animation only runs once */
+}
+
   </style>
 </head>
 <body>
 
 <div class="profile-card">
-  <div class="profile-header">
-    <img class="profile-img" src="./logos/REGAL-SKY-LOGO new.png" alt="Profile Picture" style="width: 200px; height: 200px;" >
-    <h2>REGAL SKY</h2>
-    <p class="profile-subheading">Gold & Jwellery L.L.C</p>
-  </div>
+    <div class="profile-header">
+        <img class="profile-img jump-logo" src="./logos/REGAL-SKY-LOGO new.png" alt="Profile Picture" style="width: 200px; height: 200px;">
+        <h2>REGAL SKY</h2>
+        <p class="profile-subheading">Gold & Jewellery L.L.C</p>
+    </div>
+    
+    
+    
 
   <div class="profile-icons">
     <a href="tel:+97142243433" class="profile-link"><i class="fas fa-phone"></i> Call us</a>
