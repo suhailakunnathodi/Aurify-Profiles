@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+ 
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      /* background-color: #f4f4f4; */
+      background-image: url('./images/8764038.jpg');
+      backdrop-filter: blur(6px);
+     
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .profile-card {
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      overflow: hidden;
+      width: 300px;
+      text-align: center;
+    }
+
+    .profile-header {
+      background-image: url('./images/8764038.jpg');
+      background-size: cover;
+      color: #fff;
+      padding: 20px;
+      
+    }
+
+    .profile-img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-top: 100px;
+      margin-bottom: 10px;
+      border: 4px solid #e9f0e9; 
+    }
+
+    .profile-subheading {
+      font-size: 14px;
+      color: #f1ebeb;
+      margin-top: -15px;
+    }
+
+    .profile-icons {
+      display: flex;
+      justify-content: space-around;
+      margin-top: 20px;
+      
+    }
+
+    .profile-icons a {
+      text-decoration: none;
+      color: #064e42;
+      margin-top: 30px;
+    }
+
+    .address {
+    display: flex;
+    justify-content: center;
+      padding: 20px;
+      text-align: left;
+      margin-top: 20px;
+      margin-left: 10px;
+       text-align: center;
+    }
+
+    .save-vcard {
+      background-color: #067943;
+      color: #fff;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 0 0 8px 8px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="profile-card">
+  <div class="profile-header">
+    <img class="profile-img" src="./logos/REGAL-SKY-LOGO new.png" alt="Profile Picture" style="width: 200px; height: 200px;" >
+    <h2>REGAL SKY</h2>
+    <p class="profile-subheading">Gold & Jwellery L.L.C</p>
+  </div>
+
+  <div class="profile-icons">
+    <a href="tel:+97142243433" class="profile-link"><i class="fas fa-phone"></i> Call us</a>
+    <a href="https://www.regalskygold.com" class="profile-link"><i class="fas fa-globe"></i> know more</a>
+</div>
+
+  
+  
+
+  <div class="address">
+    <p ><strong>Address</strong><br> Office#01, Al Shamal building, <br>
+      AL Daghaya,  Gold souk Dubai-UAE
+    </p>
+  </div>
+  
+
+  <button class="save-vcard">Save vCard</button>
+</div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var saveBtn = document.getElementById("save-btn");
+    
+      if (saveBtn) {
+        saveBtn.addEventListener("click", function () {
+          var contact = {
+            name: "Regal sky gold and jwellery llc",
+            phone: "971 4224 3433",
+            email: ""
+          };
+    
+          var vcard =
+            "BEGIN:VCARD\nVERSION:4.0\nFN:" +
+            contact.name +
+            "\nTEL;TYPE=work,voice:" +
+            contact.phone +
+            "\nEMAIL:" +
+            contact.email +
+            "\nEND:VCARD";
+    
+          var blob = new Blob([vcard], { type: "text/vcard" });
+          var url = URL.createObjectURL(blob);
+    
+          saveBtn.href = url;
+          saveBtn.download = contact.name + ".vcf";
+        });
+      }
+    });
+    
+        </script>
+
+</body>
+</html>
