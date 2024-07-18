@@ -17,7 +17,14 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: linear-gradient(#03a9f4, #03a9f4 45%, #fff 45%, #fff 100%);
+  /* background: linear-gradient(#03a9f4, #03a9f4 45%, #fff 45%, #fff 100%); */
+  background-image: url('./images/prestege\ bg.png');
+    background-size: cover; /* Makes sure the image covers the whole background */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+    background-position: center; /* Centers the image in the viewport */
+    height: 100vh; /* Makes sure the background covers the entire viewport height */
+    margin: 0; /* Removes default body margin */
+
 }
 
 .card {
@@ -79,7 +86,7 @@ body {
 
 .content .detail h2 span {
   font-size: 0.7em;
-  color: #03a9f4;
+  color: #444;
   font-weight: bold;
 }
 
@@ -87,11 +94,13 @@ body {
   position: relative;
   display: flex;
   margin-top: 5px;
+
 }
 
 .sci li {
   list-style: none;
   margin: 4px;
+  
 }
 
 .sci li a {
@@ -110,7 +119,7 @@ body {
 }
 
 .sci li a:hover {
-  background: #03a9f4;
+  background: #b48504;
   color: #fff;
 }
 
@@ -134,7 +143,7 @@ body {
   <body>
     <div class="card">
       <div class="img-bx">
-        <img src="./logos/prestige.png" alt="img" >
+        <img src="./logos/prestigebullion.png" alt="img" >
       </div>
       <div class="content">
         <div class="detail" style="font-size: small;">
@@ -154,10 +163,10 @@ body {
 				<a href="https://wa.me/0502957311"><i class="fab fa-whatsapp"></i></a>
             </li>
             <li>
-              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fas fa-arrow-down"></i></a>
             </li>
             <li>
-              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fas fa-share"></i></a>
             </li>
           </ul>
         </div>
