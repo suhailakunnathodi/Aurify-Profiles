@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Card</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .card {
+            width: 300px;
+            background-color: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .cover-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .profile-content {
+            position: relative;
+            padding: 20px;
+            margin-left: 6px;
+        }
+        .profile-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            /* border: 3px solid rgb(234, 227, 227); */
+            position: absolute;
+            top: -30px;
+            left: 20px;
+          filter: drop-shadow(2px 4px 6px black);
+            margin-top: -60px;
+            /* filter: drop-shadow(); */
+            margin-left: 50px;
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background-color: white; /* Top half color */
+            border-radius: 50% 50% 0 0; /* Round the top corners */
+            border: 3px solid black; 
+            box-sizing: border-box;
+        }
+
+        .profile-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background-color: black; /* Bottom half color */
+            border-radius: 0 0 50% 50%; /* Round the bottom corners */
+            border: 3px solid black; 
+            box-sizing: border-box;
+        }
+        .profile-info {
+            margin-top: 40px;
+        }
+        .name {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0;
+            margin-left: 60px;
+        }
+        .title {
+            color: #666;
+            font-size: 14px;
+            margin: 5px 0 15px;
+            margin-left: 60px;
+        }
+        .social-icons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            margin-left: 60px;
+        }
+        .social-icon {
+            width: 20px;
+            height: 20px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-value {
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .stat-label {
+            color: #666;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="https://pub-c5e31b5cdafb419fb247a8ac2e78df7a.r2.dev/mock/assets/images/cover/cover-1.webp" alt="Cosmic Landscape" class="cover-image">
+        <div class="profile-content">
+            <img src="./images/Q.png" alt="Profile" class="profile-image">
+            <div class="profile-info">
+                <h2 class="name">Jayvion Simon</h2>
+                <p class="title">test@example.com</p>
+                <div class="social-icons">
+                   <!-- <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-2ztcct" focusable="false" aria-hidden="true" viewBox="0 0 24 24" style="height: 20px; width: 20px;">
+    <path d="M6.62 10.79a15.01 15.01 0 0 0 5.76 5.76l1.73-1.73a.5.5 0 0 1 .5-.09l2.43 1.44a.5.5 0 0 0 .69-.28l2.03-5.5a.5.5 0 0 0-.31-.64l-4.2-2.24a.5.5 0 0 0-.64.31l-1.95 5.26a.5.5 0 0 1-.69.28l-2.43-1.44a.5.5 0 0 0-.5.09L6.62 10.79z" fill="#000000"></path>
+</svg> -->
+
+                    <img src="./images/icons8-email-50.png" alt="Facebook" class="social-icon">
+                    <img src="./images/icons8-website-50.png" alt="Instagram" class="social-icon">
+                    <img src="./images/icons8-download-26.png" alt="LinkedIn" class="social-icon">
+                    <img src="./images/icons8-share-50.png" alt="Twitter" class="social-icon">
+                </div>
+            </div>
+            
+
+            <div class="stats" style="display: flex; align-items: center;justify-content: center;gap: 33px;">
+                <div class="stat">
+                    <img src="./images/icons8-facebook-48.png" alt="Facebook" class="social-icon" style="height: 30px; width: 30px;"> 
+                </div>
+                
+                <div class="stat">
+                    <img src="./images/icons8-instagram-48.png" alt="Facebook" class="social-icon" style="height: 30px; width: 30px;"> 
+                </div>
+                <div class="stat">
+                    <img src="./images/icons8-twitter-48.png" alt="Facebook" class="social-icon" style="height: 30px;width: 30px;">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
