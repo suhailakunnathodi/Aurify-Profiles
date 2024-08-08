@@ -3,182 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
-    <title>Document</title>
+    <title>Profile Card</title>
     <style>
-        * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .card {
+            width: 300px;
+            background-color: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .cover-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .profile-content {
+            position: relative;
+            padding: 20px;
+            margin-left: 6px;
+        }
+        .profile-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            /* border: 3px solid rgb(234, 227, 227); */
+            position: absolute;
+            top: -30px;
+            left: 20px;
+          filter: drop-shadow(2px 4px 6px black);
+            margin-top: -60px;
+            /* filter: drop-shadow(); */
+            margin-left: 50px;
+        }
 
-body {
-    font-family: 'Times New Roman', Times, serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-  background: linear-gradient(#03a9f4, #03a9f4 45%, #fff 45%, #fff 100%);
-}
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background-color: white; /* Top half color */
+            border-radius: 50% 50% 0 0; /* Round the top corners */
+            border: 3px solid black; 
+            box-sizing: border-box;
+        }
 
-.card {
-  position: relative;
-  width: 300px;
-  height: 400px;
-  background: #fff;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.1);
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
-  backdrop-filter: blur(15px);
-  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
-}
-
-.img-bx {
-      position: absolute;
-      top: 50px; /* Adjust this value to move the element down */
-      left: 0;
-      width: 300px; /* Ensure width and height are the same for a perfect circle */
-      height: 300px; /* Ensure width and height are the same for a perfect circle */
-      border-radius: 50%; /* Makes the element round */
-      overflow: hidden;
-      transform: translateY(30px) scale(0.5);
-      transform-origin: top;
-      background-color: #ccc; /* Just for visualization, remove or change as needed */
-      animation: moveUpDown 2s ease-in-out; /* Apply the animation */
-    }
-
-    /* Define the keyframes for the animation */
-    @keyframes moveUpDown {
-      0% {
-        transform: translateY(30px) scale(0.5);
-      }
-      50% {
-        transform: translateY(50px) scale(0.5);
-      }
-      100% {
-        transform: translateY(30px) scale(0.5);
-      }
-    }
-  
-
-.img-bx img {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.content {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  padding-bottom: 30px;
-}
-
-.content .detail {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center;
-}
-
-.content .detail h2 {
-  color: #444;
-  font-size: 1.6em;
-  font-weight: bolder;
-}
-
-.content .detail h2 span {
-  font-size: 0.7em;
-  color: #03a9f4;
-  font-weight: bold;
-}
-
-.sci {
-  position: relative;
-  display: flex;
-  margin-top: 5px;
-}
-
-.sci li {
-  list-style: none;
-  margin: 4px;
-}
-
-.sci li a {
-  width: 45px;
-  height: 45px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  background: transparent;
-  font-size: 1.5em;
-  color: #444;
-  text-decoration: none;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  transition: 0.5s;
-}
-
-.sci li a:hover {
-  background: #03a9f4;
-  color: #fff;
-}
-
+        .profile-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background-color: black; /* Bottom half color */
+            border-radius: 0 0 50% 50%; /* Round the bottom corners */
+            border: 3px solid black; 
+            box-sizing: border-box;
+        }
+        .profile-info {
+            margin-top: 40px;
+        }
+        .name {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0;
+            margin-left: 90px;
+        }
+        .title {
+            color: #666;
+            font-size: 14px;
+            margin: 5px 0 15px;
+            margin-left: 60px;
+        }
+        .social-icons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            margin-left: 60px;
+        }
+        .social-icon {
+            width: 20px;
+            height: 20px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-value {
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .stat-label {
+            color: #666;
+            font-size: 12px;
+        }
     </style>
 </head>
 <body>
-    <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>card</title>
-    <link rel="stylesheet" href="./Profile-card.css" />
-    <script
-      src="https://kit.fontawesome.com/66aa7c98b3.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
     <div class="card">
-      <div class="img-bx">
-        <img src="./images/Q.png" alt="img" />
-      </div>
-      <div class="content">
-        <div class="detail">
-          <h2>Behrouz<br /><span></span></h2>
-          <ul class="sci">
-            <li>
-                <a href="tel:+971 56 446 4225"><i class="fas fa-phone"></i></a>
+        <img src="https://pub-c5e31b5cdafb419fb247a8ac2e78df7a.r2.dev/mock/assets/images/cover/cover-1.webp" alt="Cosmic Landscape" class="cover-image">
+        <div class="profile-content">
+            <img src="./images/Q.png" alt="Profile" class="profile-image">
+            <div class="profile-info">
+                <h2 class="name" style="margin-right: ;">Beherouz</h2>
+                <p class="title">
+                  <a href="tel:+971 56 446 4225" style="text-decoration: none; color: black;">+971 56 446 4225</a>
+                </p>
+                
+                <div class="social-icons">
+                   <!-- <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-2ztcct" focusable="false" aria-hidden="true" viewBox="0 0 24 24" style="height: 20px; width: 20px;">
+    <path d="M6.62 10.79a15.01 15.01 0 0 0 5.76 5.76l1.73-1.73a.5.5 0 0 1 .5-.09l2.43 1.44a.5.5 0 0 0 .69-.28l2.03-5.5a.5.5 0 0 0-.31-.64l-4.2-2.24a.5.5 0 0 0-.64.31l-1.95 5.26a.5.5 0 0 1-.69.28l-2.43-1.44a.5.5 0 0 0-.5.09L6.62 10.79z" fill="#000000"></path>
+</svg> -->
 
-            </li>
+                    <img src="./images/icons8-email-50.png" alt="Facebook" class="social-icon">
+                    <img src="./images/icons8-website-50.png" alt="Instagram" class="social-icon">
+                    <img src="./images/icons8-download-26.png" alt="LinkedIn" class="social-icon">
+                    <img src="./images/icons8-share-50.png" alt="Twitter" class="social-icon">
+                </div>
+            </div>
             
-            <li>
-                <a href="mailto:info@qvd.ae"><i class="fas fa-envelope"></i></a>
 
-            </li>
-            <li>
-                <a href="https://www.example.com" target="_blank"><i class="fas fa-globe"></i></a>
-
-            </li>
-            <li>
-                <a href="#"><i class="fas fa-share-alt"></i></a>
-
-              </li>
-          </ul>
+            <div class="stats" style="display: flex; align-items: center;justify-content: center;gap: 33px;">
+                <div class="stat">
+                    <img src="./images/icons8-facebook-48.png" alt="Facebook" class="social-icon" style="height: 30px; width: 30px;"> 
+                </div>
+                
+                <div class="stat">
+                    <img src="./images/icons8-instagram-48.png" alt="Facebook" class="social-icon" style="height: 30px; width: 30px;"> 
+                </div>
+                <div class="stat">
+                    <img src="./images/icons8-twitter-48.png" alt="Facebook" class="social-icon" style="height: 30px;width: 30px;">
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </body>
-</html>
-
 </body>
 </html>
