@@ -112,6 +112,10 @@
             color: #666;
             font-size: 12px;
         }
+
+        .social-icon {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -120,31 +124,38 @@
         <div class="profile-content">
             <img src="./images/Q.png" alt="Profile" class="profile-image">
             <div class="profile-info">
-                <h2 class="name" style="margin-right: ;">Beherouz</h2>
-                <p class="title">
-                  <a href="tel:+971 56 446 4225" style="text-decoration: none; color: black;">+971 56 446 4225</a>
-                </p>
+              <h2 class="name" style="margin-right: ;">Beherouz</h2>
+              <p class="title">
+                  <a href="tel:+971564464225" style="text-decoration: none; color: black;">+971 56 446 4225</a>
+              </p>
                 
                 <div class="social-icons">
                    <!-- <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-2ztcct" focusable="false" aria-hidden="true" viewBox="0 0 24 24" style="height: 20px; width: 20px;">
     <path d="M6.62 10.79a15.01 15.01 0 0 0 5.76 5.76l1.73-1.73a.5.5 0 0 1 .5-.09l2.43 1.44a.5.5 0 0 0 .69-.28l2.03-5.5a.5.5 0 0 0-.31-.64l-4.2-2.24a.5.5 0 0 0-.64.31l-1.95 5.26a.5.5 0 0 1-.69.28l-2.43-1.44a.5.5 0 0 0-.5.09L6.62 10.79z" fill="#000000"></path>
 </svg> -->
 
-                    <img src="./images/icons8-email-50.png" alt="Facebook" class="social-icon">
-                    <img src="./images/icons8-website-50.png" alt="Instagram" class="social-icon">
-                    <img src="./images/icons8-download-26.png" alt="LinkedIn" class="social-icon">
-                    <img src="./images/icons8-share-50.png" alt="Twitter" class="social-icon">
+<a href="mailto:info@qvd.ae">
+  <img src="./images/icons8-email-50.png" alt="Email Icon" class="social-icon">
+</a>
+
+<a href="https://www.example.com" target="_blank">
+  <img src="./images/icons8-website-50.png" alt="Website Icon" class="social-icon">
+</a>
+<img src="./images/icons8-download-26.png" alt="Download Icon" class="social-icon" onclick="downloadFile()">  <img src="./images/icons8-share-50.png" alt="Share Icon" class="social-icon" onclick="shareProfile()">
+
                 </div>
             </div>
             
 
             <div class="stats" style="display: flex; align-items: center;justify-content: center;gap: 33px;">
                 <div class="stat">
-                    <img src="./images/icons8-facebook-48.png" alt="Facebook" class="social-icon" style="height: 30px; width: 30px;"> 
+                  <a href="https://www.facebook.com/profile.php?id=61563782757403&mibextid=ZbWKwL">
+                    <img src="./images/icons8-facebook-48.png" alt="Facebook" class="social-icon" style="height: 30px; width: 30px;"> </a>
                 </div>
                 
                 <div class="stat">
-                    <img src="./images/icons8-instagram-48.png" alt="Facebook" class="social-icon" style="height: 30px; width: 30px;"> 
+                  <a href="https://www.instagram.com/qvd.dubai?igsh=MTk3bDMyenVzNmVrdA==">
+                    <img src="./images/icons8-instagram-48.png" alt="Facebook" class="social-icon" style="height: 30px; width: 30px;"> </a>
                 </div>
                 <div class="stat">
                     <img src="./images/icons8-twitter-48.png" alt="Facebook" class="social-icon" style="height: 30px;width: 30px;">
@@ -152,5 +163,53 @@
             </div>
         </div>
     </div>
+
+    <script>
+      function downloadFile() {
+          // Content to be downloaded
+          const fileContent = `Name: Beherouz\nPhone Number: +971 56 446 4225`;
+          const fileName = 'contact-info.txt';
+
+          // Create a Blob with the content
+          const blob = new Blob([fileContent], { type: 'text/plain' });
+          const url = URL.createObjectURL(blob);
+
+          // Create a link element
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = fileName;
+
+          // Programmatically click the link to trigger download
+          document.body.appendChild(a);
+          a.click();
+
+          // Clean up
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+      }
+  </script>
+
+<script>
+  function shareProfile() {
+      // Define the profile URL
+      const profileUrl = 'https://profiles.aurify.ae/beherouz';
+
+      // Check if the Web Share API is supported
+      if (navigator.share) {
+          // Share the profile URL using the Web Share API
+          navigator.share({
+              title: 'Check out this profile',
+              text: 'Name: Beherouz\nPhone Number: +971 56 446 4225',
+              url: profileUrl
+          })
+          .then(() => console.log('Profile shared successfully'))
+          .catch((error) => console.log('Error sharing profile:', error));
+      } else {
+          // Fallback if Web Share API is not supported
+          alert('Web Share API is not supported on this browser.');
+      }
+  }
+</script>
+
 </body>
 </html>
