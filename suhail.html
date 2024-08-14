@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,7 +24,7 @@
         }
         .cover-image {
             width: 100%;
-            height: 150px;
+            height: 300px;
             object-fit: cover;
         }
         .profile-content {
@@ -43,6 +44,8 @@
             margin-top: -60px;
             /* filter: drop-shadow(); */
             margin-left: 50px;
+            margin-bottom:;
+
         }
 
         .profile-image::before {
@@ -119,14 +122,40 @@
 </head>
 <body>
     <div class="card">
-        <img src="https://pub-c5e31b5cdafb419fb247a8ac2e78df7a.r2.dev/mock/assets/images/cover/cover-1.webp" alt="Cosmic Landscape" class="cover-image">
+        <img src="./images/dvd bannerjpeg.jpeg" alt="Cosmic Landscape" class="cover-image">
         <div class="profile-content">
             <img src="./images/Q.png" alt="Profile" class="profile-image">
             <div class="profile-info">
-                <h2 class="name" style="margin-right: ;">Suhail</h2>
-                <p class="title">
-                  <a href="tel:+971 50 373 1610" style="text-decoration: none; color: black;">+971 50 373 1610</a>
-                </p>
+                <div style="margin-left: 10px;">
+                    <h2 class="name">Suhail</h2>
+                    <p class="title" style="margin-left: 60px;">
+                        <i class="fa fa-map-marker-alt text-primary"></i>
+                        PO BOX: 40503<br>
+                        Office 110 A block<br>
+                        Baniyas Tower,<br> Baniyas Square <br>Deira, Dubai UAE<br>
+                        
+                         </p>
+                         <div style="display: flex; align-items: center;justify-content: center;gap: 33px;">
+
+                         <a href="tel:+971 50 373 1610">
+                            <img src="./images/phone123.png" alt="" class="social-icon" style="height: 30px; width: 30px;">
+                          </a>
+                          <a href="tel:+971 4 226 8860">
+                            <img src="./images/phone123.png" alt="" class="social-icon" style= " height: 30px ;width:30px">
+                          </a>
+                         </div>
+                         <br>
+                    <!-- <span style="display: flex; align-items: center; margin-left: 50px;">
+                        <i class="fa fa-phone text-primary" style="margin-right: 8px;"></i> 
+                        <a href="tel:+971 50 373 1610" style="text-decoration: none; color: black;"></a>
+                    </span>
+                    
+                    <span style="display: flex; align-items: center; margin-left: 50px;">
+                        <i class="fa fa-phone text-primary" style="margin-right: 8px;"></i> 
+                        <a href="tel:+971 4 226 8860" style="text-decoration: none; color: black;"></a>
+                    </span> -->
+                </div>
+                
                 
                 <div class="social-icons"style="display: flex; align-items: center;justify-content: center;gap: 33px;">
                    <!-- <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-2ztcct" focusable="false" aria-hidden="true" viewBox="0 0 24 24" style="height: 20px; width: 20px;">
