@@ -1,10 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Card</title>
-    <style>
+    <title>Bherouz</title>
+
+     <style>
+                .styled-button {
+                    width: 250px;
+                    height: 30px;
+                    background-color: rgb(5, 5, 20);
+                    border: none;
+                    border-radius: px;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+                    cursor: pointer;
+                    transition: background-color 0.3s, box-shadow 0.3s;
+                    color: white;
+                    font-size: 12px;
+                    font-weight: bold;
+                    display: block;
+                    margin: 0 auto;
+                    margin-bottom: 20px;
+                }
+                
+                .styled-button:hover {
+                    background-color: rgb(75, 75, 235);
+                    box-shadow: 0 6px 8px rgba(72, 67, 67, 0.3);
+                }
+                
+
         body {
             font-family: Arial, sans-serif;
             display: flex;
@@ -23,8 +48,9 @@
         }
         .cover-image {
             width: 100%;
-            height: 150px;
-            object-fit: cover;
+            height: 200px;
+            object-fit:cover;
+            object-position: center;
         }
         .profile-content {
             position: relative;
@@ -43,6 +69,8 @@
             margin-top: -60px;
             /* filter: drop-shadow(); */
             margin-left: 50px;
+            margin-bottom:;
+
         }
 
         .profile-image::before {
@@ -112,104 +140,161 @@
             color: #666;
             font-size: 12px;
         }
-
         .social-icon {
             cursor: pointer;
         }
+
+
+        .styled-button {
+                    width: 250px;
+                    height: 30px;
+                    background-color: rgb(5, 5, 20);
+                    border: none;
+                    border-radius: px;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+                    cursor: pointer;
+                    transition: background-color 0.3s, box-shadow 0.3s;
+                    color: white;
+                    font-size: 12px;
+                    font-weight: bold;
+                    display: block;
+                    margin: 0 auto;
+                    margin-bottom: 20px;
+                }
+                
+                .styled-button:hover {
+                    background-color: rgb(75, 75, 235);
+                    box-shadow: 0 6px 8px rgba(72, 67, 67, 0.3);
+                }
     </style>
 </head>
 <body>
     <div class="card">
-        <img src="https://pub-c5e31b5cdafb419fb247a8ac2e78df7a.r2.dev/mock/assets/images/cover/cover-1.webp" alt="Cosmic Landscape" class="cover-image">
+        <img src="./images/dvd bannerjpeg.jpeg" alt="Cosmic-Landscape" class="cover-image">
         <div class="profile-content">
             <img src="./images/Q.png" alt="Profile" class="profile-image">
             <div class="profile-info">
-              <h2 class="name" style="margin-right: ;">Beherouz</h2>
-              <p class="title">
-                  <a href="tel:+971564464225" style="text-decoration: none; color: black;">+971 56 446 4225</a>
-              </p>
+                <div style=" font-family: Arial, sans-serif; color: #333;">
+                    <h2 class="name" style="margin-bottom: 5px; font-weight: bold; font-size: 24px;">Awais</h2><br>
+           
+                    <div style="display: flex;justify-content: center;align-items: center;">
+                        <img src="./images/phone123.png" alt="Phone Icon" class="social-icon" style="height: 24px; width: 24px; margin-right: 25px;">
+                        <div style="display: block;">
+                        <a href="tel:+971 54 426 2470" style=" text-decoration: none; color: #666; margin-bottom: 10px;">
+                            <p style="margin: 0;">+971 54 426 2470</p>
+                        </a>
+                        <a href="tel:+971 4 226 8860" style=" text-decoration: none; color: #666;">
+                            <p style="margin: 0;">+971 4 226 8860</p>
+                            <br>
+                        </a>
+                    </div>
+                    
+                    </div>
+                    <div style="display: flex;justify-content: center;align-items: center;">
+                        <i class="fa fa-map-marker-alt text-primary" style="color: #007bff; margin-right: 5px;"></i>
+                        <p class="title" style="margin-left: 30px; font-size: 16px; line-height: 1.5;">
+                            
+                            PO BOX: 40503<br>
+                            Office 110 A block<br>
+                            Baniyas Tower,<br> 
+                            Baniyas Square <br> 
+                            Deira, Dubai UAE
+                        </p>
+                    </div>
+                    <div style="text-align: center;">
+                        <button onclick="saveContact()" class="styled-button">Save Contact</button>
+                    </div>
+                                    
+                    
+                    
+
+                </div>
                 
-                <div class="social-icons"style="display: flex; align-items: center;justify-content: center;gap: 33px;">
-                   <!-- <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-2ztcct" focusable="false" aria-hidden="true" viewBox="0 0 24 24" style="height: 20px; width: 20px;">
-    <path d="M6.62 10.79a15.01 15.01 0 0 0 5.76 5.76l1.73-1.73a.5.5 0 0 1 .5-.09l2.43 1.44a.5.5 0 0 0 .69-.28l2.03-5.5a.5.5 0 0 0-.31-.64l-4.2-2.24a.5.5 0 0 0-.64.31l-1.95 5.26a.5.5 0 0 1-.69.28l-2.43-1.44a.5.5 0 0 0-.5.09L6.62 10.79z" fill="#000000"></path>
-</svg> -->
 
-<a href="mailto:info@qvd.ae">
-  <img src="./images/icons8-email-50.png" alt="Email Icon" class="social-icon">
-</a>
+            <div class="stats" style="display: flex; align-items: center;justify-content: center;gap: 13px;">
+              <div class="stat">
+                <a href="mailto:info@qvd.ae">
+                    <img src="./images/icons8-mail-48.png" alt="Email Icon" class="social-icon" style="height: 30px; width: 30px;">
+                  </a>
+                  
+              </div>
+              
+              <div class="stat">
+                <a href="https://www.example.com" target="_blank">
+                    <img src="./images/icons8-website-94.png" alt="Website Icon" class="social-icon" style="height: 30px;width: 30px;">
+                  </a>
+              </div>
+              <!-- <div class="stat">
+                <img src="./images/icons8-save-64.png" alt="Download Icon" class="social-icon" onclick="downloadFile()" style="height: 30px; width: 30px;"> 
+              </div> -->
 
-<a href="https://www.example.com" target="_blank">
-  <img src="./images/icons8-website-50.png" alt="Website Icon" class="social-icon">
-</a>
-<img src="./images/icons8-download-26.png" alt="Download Icon" class="social-icon" onclick="downloadFile()">  <img src="./images/icons8-share-50.png" alt="Share Icon" class="social-icon" onclick="shareProfile()">
+              <div class="stat">
+                <img src="./images/icons8-share-64.png" alt="Share Icon" class="social-icon" onclick="shareProfile()" style="height: 30px;width: 30px;">
 
-                </div>
-            </div>
-            
-
-            <div class="stats" style="display: flex; align-items: center;justify-content: center;gap: 33px;">
-                <div class="stat">
-                  <a href="https://www.facebook.com/profile.php?id=61563782757403&mibextid=ZbWKwL">
-                    <img src="./images/icons8-facebook-48.png" alt="Facebook" class="social-icon" style="height: 30px; width: 30px;"> </a>
-                </div>
-                
-                <div class="stat">
-                  <a href="https://www.instagram.com/qvd.dubai?igsh=MTk3bDMyenVzNmVrdA==">
-                    <img src="./images/icons8-instagram-48.png" alt="Facebook" class="social-icon" style="height: 30px; width: 30px;"> </a>
-                </div>
-                <div class="stat">
-                    <img src="./images/icons8-twitter-48.png" alt="Facebook" class="social-icon" style="height: 30px;width: 30px;">
-                </div>
-            </div>
+              </div>
+              <div class="stat">
+                <a href="">
+                    <img src="./images/icons8-facebook-48.png" alt="Email Icon" class="social-icon" style="height: 30px; width: 30px;">
+                  </a>
+                  
+              </div>
+              <div class="stat">
+                <a href="https://www.instagram.com/qvd.dubai/?igsh=MTk3bDMyenVzNmVrdA%3D%3D">
+                    <img src="./images/icons8-instagram-48.png" alt="Email Icon" class="social-icon" style="height: 30px; width: 30px;">
+                  </a>
+                  
+              </div>
+          </div>
         </div>
     </div>
 
+
     <script>
-      function downloadFile() {
-          // Content to be downloaded
-          const fileContent = `Name: Beherouz\nPhone Number: +971 56 446 4225`;
-          const fileName = 'contact-info.txt';
+        function saveContact() {
+            var contact = {
+                name: "Beherouz",
+                phone1: "+971 56 446 4225",
+                phone2: "+971 4 226 8860",
+                email: "info@qvd.ae"
+            };
 
-          // Create a Blob with the content
-          const blob = new Blob([fileContent], { type: 'text/plain' });
-          const url = URL.createObjectURL(blob);
+            var vcard = `
+BEGIN:VCARD
+VERSION:3.0
+FN:${contact.name}
+TEL;TYPE=work,voice:${contact.phone1}
+TEL;TYPE=work,voice:${contact.phone2}
+EMAIL:${contact.email}
+END:VCARD
+            `.trim();
 
-          // Create a link element
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = fileName;
+            var blob = new Blob([vcard], { type: "text/vcard" });
+            var link = document.createElement("a");
+            link.href = window.URL.createObjectURL(blob);
+            link.setAttribute("download", contact.name + ".vcf");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
 
-          // Programmatically click the link to trigger download
-          document.body.appendChild(a);
-          a.click();
+        function shareProfile() {
+            const profileUrl = 'https://profiles.aurify.ae/suhail';
 
-          // Clean up
-          document.body.removeChild(a);
-          URL.revokeObjectURL(url);
-      }
-  </script>
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Check out this profile',
+                    text: 'Name: Beherouz\nPhone Number:+971 56 446 4225',
+                    url: profileUrl
+                })
+                .then(() => console.log('Profile shared successfully'))
+                .catch((error) => console.log('Error sharing profile:', error));
+            } else {
+                alert('Web Share API is not supported on this browser.');
+            }
+        }
+    </script>
+        
 
-<script>
-  function shareProfile() {
-      // Define the profile URL
-      const profileUrl = 'https://profiles.aurify.ae/beherouz';
-
-      // Check if the Web Share API is supported
-      if (navigator.share) {
-          // Share the profile URL using the Web Share API
-          navigator.share({
-              title: 'Check out this profile',
-              text: 'Name: Beherouz\nPhone Number: +971 56 446 4225',
-              url: profileUrl
-          })
-          .then(() => console.log('Profile shared successfully'))
-          .catch((error) => console.log('Error sharing profile:', error));
-      } else {
-          // Fallback if Web Share API is not supported
-          alert('Web Share API is not supported on this browser.');
-      }
-  }
-</script>
-
+      
 </body>
 </html>
