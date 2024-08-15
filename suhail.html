@@ -143,6 +143,29 @@
         .social-icon {
             cursor: pointer;
         }
+
+
+        .styled-button {
+                    width: 250px;
+                    height: 30px;
+                    background-color: rgb(5, 5, 20);
+                    border: none;
+                    border-radius: px;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+                    cursor: pointer;
+                    transition: background-color 0.3s, box-shadow 0.3s;
+                    color: white;
+                    font-size: 12px;
+                    font-weight: bold;
+                    display: block;
+                    margin: 0 auto;
+                    margin-bottom: 20px;
+                }
+                
+                .styled-button:hover {
+                    background-color: rgb(75, 75, 235);
+                    box-shadow: 0 6px 8px rgba(72, 67, 67, 0.3);
+                }
     </style>
 </head>
 <body>
@@ -186,30 +209,7 @@
                     
 
                 </div>
-                <style>
-                .styled-button {
-                    width: 250px;
-                    height: 30px;
-                    background-color: rgb(5, 5, 20);
-                    border: none;
-                    border-radius: px;
-                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-                    cursor: pointer;
-                    transition: background-color 0.3s, box-shadow 0.3s;
-                    color: white;
-                    font-size: 12px;
-                    font-weight: bold;
-                    display: block;
-                    margin: 0 auto;
-                    margin-bottom: 20px;
-                }
                 
-                .styled-button:hover {
-                    background-color: rgb(75, 75, 235);
-                    box-shadow: 0 6px 8px rgba(72, 67, 67, 0.3);
-                }
-                
-            </style>
 
             <div class="stats" style="display: flex; align-items: center;justify-content: center;gap: 13px;">
               <div class="stat">
@@ -250,91 +250,51 @@
 
 
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-          var saveBtn = document.getElementById("downloadVCard");
-        
-          if (saveBtn) {
-            saveBtn.addEventListener("click", function () {
-              var contact = {
-                name: "DVD",
-                phone: "971 4 268 5009",
-                email: "aibakgdtllc@gmail.com"
-              };
-        
-              var vcard =
-                "BEGIN:VCARD\nVERSION:3.0\nFN:" +
-                contact.name +
-                "\nTEL;TYPE=work,voice:" +
-                contact.phone +
-                "\nEMAIL:" +
-                contact.email +
-                "\nEND:VCARD";
-        
-              var blob = new Blob([vcard], { type: "text/vcard" });
-              if (navigator.msSaveBlob) {
-                // For IE and Edge
-                navigator.msSaveBlob(blob, contact.name + ".vcf");
-              } else {
-                // For other browsers
-                var link = document.createElement("a");
-                link.href = window.URL.createObjectURL(blob);
-                link.setAttribute("download", contact.name + ".vcf");
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-              }
-            });
-          }
-        });
-        
-            </script>>
-        
+        function saveContact() {
+            var contact = {
+                name: "Suhail",
+                phone1: "+971 50 373 1610",
+                phone2: "+971 4 226 8860",
+                email: "info@qvd.ae"
+            };
+
+            var vcard = `
+BEGIN:VCARD
+VERSION:3.0
+FN:${contact.name}
+TEL;TYPE=work,voice:${contact.phone1}
+TEL;TYPE=work,voice:${contact.phone2}
+EMAIL:${contact.email}
+END:VCARD
+            `.trim();
+
+            var blob = new Blob([vcard], { type: "text/vcard" });
+            var link = document.createElement("a");
+            link.href = window.URL.createObjectURL(blob);
+            link.setAttribute("download", contact.name + ".vcf");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function shareProfile() {
+            const profileUrl = 'https://profiles.aurify.ae/suhail';
+
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Check out this profile',
+                    text: 'Name: Suhail\nPhone Number: +971 50 373 1610',
+                    url: profileUrl
+                })
+                .then(() => console.log('Profile shared successfully'))
+                .catch((error) => console.log('Error sharing profile:', error));
+            } else {
+                alert('Web Share API is not supported on this browser.');
+            }
+        }
+    </script>
         
 
-        <script>
-            function saveContact() {
-                var contact = {
-                    name: "Suhail",
-                    phone1: "+971 50 373 1610",
-                    phone2: "+971 4 226 8860",
-                    email: "info@qvd.ae"
-                };
-    
-                var vcard = `
-    BEGIN:VCARD
-    VERSION:3.0
-    FN:${contact.name}
-    TEL;TYPE=work,voice:${contact.phone1}
-    TEL;TYPE=work,voice:${contact.phone2}
-    EMAIL:${contact.email}
-    END:VCARD
-                `.trim();
-    
-                var blob = new Blob([vcard], { type: "text/vcard" });
-                var link = document.createElement("a");
-                link.href = window.URL.createObjectURL(blob);
-                link.setAttribute("download", contact.name + ".vcf");
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            }
-    
-            function shareProfile() {
-                const profileUrl = 'https://profiles.aurify.ae/suhail';
-    
-                if (navigator.share) {
-                    navigator.share({
-                        title: 'Check out this profile',
-                        text: 'Name: Suhail\nPhone Number: +971 50 373 1610',
-                        url: profileUrl
-                    })
-                    .then(() => console.log('Profile shared successfully'))
-                    .catch((error) => console.log('Error sharing profile:', error));
-                } else {
-                    alert('Web Share API is not supported on this browser.');
-                }
-            }
-        </script>
-
+      
 </body>
 </html>
