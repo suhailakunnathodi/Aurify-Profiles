@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile Card</title>
+    <title>suhail</title>
 
      <style>
                 .styled-button {
@@ -29,8 +29,7 @@
                     box-shadow: 0 6px 8px rgba(72, 67, 67, 0.3);
                 }
                 
-            </style>
-    <style>
+
         body {
             font-family: Arial, sans-serif;
             display: flex;
@@ -251,59 +250,91 @@
 
 
     <script>
-        function saveContact() {
-            // Create the vCard content
-            const vCardData = 
-        `BEGIN:VCARD
-        VERSION:3.0
-        FN:Suhail
-        TEL;TYPE=WORK,VOICE:+971503731610
-        TEL;TYPE=WORK,VOICE:+97142268860
-        ADR;TYPE=WORK:;;PO BOX: 40503, Office 110 A block, Baniyas Tower, Baniyas Square, Deira, Dubai, UAE
-        EMAIL;TYPE=PREF,INTERNET:info@qvd.ae
-        END:VCARD`;
+        document.addEventListener("DOMContentLoaded", function () {
+          var saveBtn = document.getElementById("downloadVCard");
         
-            // Create a Blob with the vCard content
-            const blob = new Blob([vCardData], { type: 'text/vcard' });
-            const url = URL.createObjectURL(blob);
+          if (saveBtn) {
+            saveBtn.addEventListener("click", function () {
+              var contact = {
+                name: "DVD",
+                phone: "971 4 268 5009",
+                email: "aibakgdtllc@gmail.com"
+              };
         
-            // Create a link element
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'contact.vcf'; // Download the file with .vcf extension
+              var vcard =
+                "BEGIN:VCARD\nVERSION:3.0\nFN:" +
+                contact.name +
+                "\nTEL;TYPE=work,voice:" +
+                contact.phone +
+                "\nEMAIL:" +
+                contact.email +
+                "\nEND:VCARD";
         
-            // Programmatically click the link to trigger download
-            document.body.appendChild(a);
-            a.click();
+              var blob = new Blob([vcard], { type: "text/vcard" });
+              if (navigator.msSaveBlob) {
+                // For IE and Edge
+                navigator.msSaveBlob(blob, contact.name + ".vcf");
+              } else {
+                // For other browsers
+                var link = document.createElement("a");
+                link.href = window.URL.createObjectURL(blob);
+                link.setAttribute("download", contact.name + ".vcf");
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+              }
+            });
+          }
+        });
         
-            // Clean up
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        }
+            </script>>
+        
+        
+
+        <script>
+            function saveContact() {
+                var contact = {
+                    name: "Suhail",
+                    phone1: "+971 50 373 1610",
+                    phone2: "+971 4 226 8860",
+                    email: "info@qvd.ae"
+                };
+    
+                var vcard = `
+    BEGIN:VCARD
+    VERSION:3.0
+    FN:${contact.name}
+    TEL;TYPE=work,voice:${contact.phone1}
+    TEL;TYPE=work,voice:${contact.phone2}
+    EMAIL:${contact.email}
+    END:VCARD
+                `.trim();
+    
+                var blob = new Blob([vcard], { type: "text/vcard" });
+                var link = document.createElement("a");
+                link.href = window.URL.createObjectURL(blob);
+                link.setAttribute("download", contact.name + ".vcf");
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+    
+            function shareProfile() {
+                const profileUrl = 'https://profiles.aurify.ae/suhail';
+    
+                if (navigator.share) {
+                    navigator.share({
+                        title: 'Check out this profile',
+                        text: 'Name: Suhail\nPhone Number: +971 50 373 1610',
+                        url: profileUrl
+                    })
+                    .then(() => console.log('Profile shared successfully'))
+                    .catch((error) => console.log('Error sharing profile:', error));
+                } else {
+                    alert('Web Share API is not supported on this browser.');
+                }
+            }
         </script>
-        
-
-<script>
-  function shareProfile() {
-      // Define the profile URL
-      const profileUrl = 'https://profiles.aurify.ae/suhail';
-
-      // Check if the Web Share API is supported
-      if (navigator.share) {
-          // Share the profile URL using the Web Share API
-          navigator.share({
-              title: 'Check out this profile',
-              text: 'Name: suhail\nPhone Number: +971 50 373 1610',
-              url: profileUrl
-          })
-          .then(() => console.log('Profile shared successfully'))
-          .catch((error) => console.log('Error sharing profile:', error));
-      } else {
-          // Fallback if Web Share API is not supported
-          alert('Web Share API is not supported on this browser.');
-      }
-  }
-</script>
 
 </body>
 </html>
