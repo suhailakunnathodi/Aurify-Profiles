@@ -5,6 +5,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Card</title>
+
+     <style>
+                .styled-button {
+                    width: 250px;
+                    height: 30px;
+                    background-color: rgb(5, 5, 20);
+                    border: none;
+                    border-radius: px;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+                    cursor: pointer;
+                    transition: background-color 0.3s, box-shadow 0.3s;
+                    color: white;
+                    font-size: 12px;
+                    font-weight: bold;
+                    display: block;
+                    margin: 0 auto;
+                    margin-bottom: 20px;
+                }
+                
+                .styled-button:hover {
+                    background-color: rgb(75, 75, 235);
+                    box-shadow: 0 6px 8px rgba(72, 67, 67, 0.3);
+                }
+                
+            </style>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -157,7 +182,7 @@
                     <div style="text-align: center;">
                         <button onclick="saveContact()" class="styled-button">Save Contact</button>
                     </div>
-                                        </button>
+                                    
                     
                     
 
@@ -226,29 +251,37 @@
 
 
     <script>
-      function downloadFile() {
-          // Content to be downloaded
-          const fileContent = `Name: Suhail\nPhone Number: +971 50 373 1610`;
-          const fileName = 'contact-info.txt';
-
-          // Create a Blob with the content
-          const blob = new Blob([fileContent], { type: 'text/plain' });
-          const url = URL.createObjectURL(blob);
-
-          // Create a link element
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = fileName;
-
-          // Programmatically click the link to trigger download
-          document.body.appendChild(a);
-          a.click();
-
-          // Clean up
-          document.body.removeChild(a);
-          URL.revokeObjectURL(url);
-      }
-  </script>
+        function saveContact() {
+            // Create the vCard content
+            const vCardData = 
+        `BEGIN:VCARD
+        VERSION:3.0
+        FN:Suhail
+        TEL;TYPE=WORK,VOICE:+971503731610
+        TEL;TYPE=WORK,VOICE:+97142268860
+        ADR;TYPE=WORK:;;PO BOX: 40503, Office 110 A block, Baniyas Tower, Baniyas Square, Deira, Dubai, UAE
+        EMAIL;TYPE=PREF,INTERNET:info@qvd.ae
+        END:VCARD`;
+        
+            // Create a Blob with the vCard content
+            const blob = new Blob([vCardData], { type: 'text/vcard' });
+            const url = URL.createObjectURL(blob);
+        
+            // Create a link element
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'contact.vcf'; // Download the file with .vcf extension
+        
+            // Programmatically click the link to trigger download
+            document.body.appendChild(a);
+            a.click();
+        
+            // Clean up
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+        </script>
+        
 
 <script>
   function shareProfile() {
