@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>suhail</title>
+
+     <style>
+                .styled-button {
+                    width: 250px;
+                    height: 30px;
+                    background-color: rgb(5, 5, 20);
+                    border: none;
+                    border-radius: px;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+                    cursor: pointer;
+                    transition: background-color 0.3s, box-shadow 0.3s;
+                    color: white;
+                    font-size: 12px;
+                    font-weight: bold;
+                    display: block;
+                    margin: 0 auto;
+                    margin-bottom: 20px;
+                }
+                
+                .styled-button:hover {
+                    background-color: rgb(75, 75, 235);
+                    box-shadow: 0 6px 8px rgba(72, 67, 67, 0.3);
+                }
+                
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .card {
+            width: 300px;
+            background-color: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .cover-image {
+            width: 100%;
+            height: 200px;
+            object-fit:cover;
+            object-position: center;
+        }
+        .profile-content {
+            position: relative;
+            padding: 20px;
+            margin-left: 6px;
+        }
+        .profile-image {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            /* border: 3px solid rgb(234, 227, 227); */
+            position: absolute;
+            top: -30px;
+            left: 20px;
+          filter: drop-shadow(2px 4px 6px black);
+            margin-top: -60px;
+            /* filter: drop-shadow(); */
+            margin-left: 50px;
+            margin-bottom:;
+
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background-color: white; /* Top half color */
+            border-radius: 50% 50% 0 0; /* Round the top corners */
+            border: 3px solid black; 
+            box-sizing: border-box;
+        }
+
+        .profile-image::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 50%;
+            background-color: black; /* Bottom half color */
+            border-radius: 0 0 50% 50%; /* Round the bottom corners */
+            border: 3px solid black; 
+            box-sizing: border-box;
+        }
+        .profile-info {
+            margin-top: 40px;
+        }
+        .name {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 0;
+            margin-left: 90px;
+        }
+        .title {
+            color: #666;
+            font-size: 14px;
+            margin: 5px 0 15px;
+            margin-left: 60px;
+        }
+        .social-icons {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 20px;
+            margin-left: px;
+        }
+        .social-icon {
+            width: 20px;
+            height: 20px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid #eee;
+            padding-top: 15px;
+        }
+        .stat {
+            text-align: center;
+        }
+        .stat-value {
+            font-weight: bold;
+            font-size: 16px;
+        }
+        .stat-label {
+            color: #666;
+            font-size: 12px;
+        }
+        .social-icon {
+            cursor: pointer;
+        }
+
+
+        .styled-button {
+                    width: 250px;
+                    height: 30px;
+                    background-color: rgb(5, 5, 20);
+                    border: none;
+                    border-radius: px;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+                    cursor: pointer;
+                    transition: background-color 0.3s, box-shadow 0.3s;
+                    color: white;
+                    font-size: 12px;
+                    font-weight: bold;
+                    display: block;
+                    margin: 0 auto;
+                    margin-bottom: 20px;
+                }
+                
+                .styled-button:hover {
+                    background-color: rgb(75, 75, 235);
+                    box-shadow: 0 6px 8px rgba(72, 67, 67, 0.3);
+                }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <img src="./images/dvd bannerjpeg.jpeg" alt="Cosmic-Landscape" class="cover-image">
+        <div class="profile-content">
+            <img src="./images/Q.png" alt="Profile" class="profile-image">
+            <div class="profile-info">
+                <div style=" font-family: Arial, sans-serif; color: #333;">
+                    <h2 class="name" style="margin-bottom: 5px; font-weight: bold; font-size: 24px;">Suhail</h2><br>
+           
+                    <div style="display: flex;justify-content: center;align-items: center;">
+                        <img src="./images/phone123.png" alt="Phone Icon" class="social-icon" style="height: 24px; width: 24px; margin-right: 25px;">
+                        <div style="display: block;">
+                        <a href="tel:+971 50 373 1610" style=" text-decoration: none; color: #666; margin-bottom: 10px;">
+                            <p style="margin: 0;">+971 50 373 1610</p>
+                        </a>
+                        <a href="tel:+971 4 226 8860" style=" text-decoration: none; color: #666;">
+                            <p style="margin: 0;">+971 4 226 8860</p>
+                            <br>
+                        </a>
+                    </div>
+                    
+                    </div>
+                    <div style="display: flex;justify-content: center;align-items: center;">
+                        <i class="fa fa-map-marker-alt text-primary" style="color: #007bff; margin-right: 5px;"></i>
+                        <p class="title" style="margin-left: 30px; font-size: 16px; line-height: 1.5;">
+                            
+                            PO BOX: 40503<br>
+                            Office 110 A block<br>
+                            Baniyas Tower,<br> 
+                            Baniyas Square <br> 
+                            Deira, Dubai UAE
+                        </p>
+                    </div>
+                    <div style="text-align: center;">
+                        <button onclick="saveContact()" class="styled-button">Save Contact</button>
+                    </div>
+                                    
+                    
+                    
+
+                </div>
+                
+
+            <div class="stats" style="display: flex; align-items: center;justify-content: center;gap: 13px;">
+              <div class="stat">
+                <a href="mailto:info@qvd.ae">
+                    <img src="./images/icons8-mail-48.png" alt="Email Icon" class="social-icon" style="height: 30px; width: 30px;">
+                  </a>
+                  
+              </div>
+              
+              <div class="stat">
+                <a href="https://www.example.com" target="_blank">
+                    <img src="./images/icons8-website-94.png" alt="Website Icon" class="social-icon" style="height: 30px;width: 30px;">
+                  </a>
+              </div>
+              <!-- <div class="stat">
+                <img src="./images/icons8-save-64.png" alt="Download Icon" class="social-icon" onclick="downloadFile()" style="height: 30px; width: 30px;"> 
+              </div> -->
+
+              <div class="stat">
+                <img src="./images/icons8-share-64.png" alt="Share Icon" class="social-icon" onclick="shareProfile()" style="height: 30px;width: 30px;">
+
+              </div>
+              <div class="stat">
+                <a href="">
+                    <img src="./images/icons8-facebook-48.png" alt="Email Icon" class="social-icon" style="height: 30px; width: 30px;">
+                  </a>
+                  
+              </div>
+              <div class="stat">
+                <a href="https://www.instagram.com/qvd.dubai/?igsh=MTk3bDMyenVzNmVrdA%3D%3D">
+                    <img src="./images/icons8-instagram-48.png" alt="Email Icon" class="social-icon" style="height: 30px; width: 30px;">
+                  </a>
+                  
+              </div>
+          </div>
+        </div>
+    </div>
+
+
+    <script>
+        function saveContact() {
+            var contact = {
+                name: "Suhail",
+                phone1: "+971 50 373 1610",
+                phone2: "+971 4 226 8860",
+                email: "info@qvd.ae"
+            };
+
+            var vcard = `
+BEGIN:VCARD
+VERSION:3.0
+FN:${contact.name}
+TEL;TYPE=work,voice:${contact.phone1}
+TEL;TYPE=work,voice:${contact.phone2}
+EMAIL:${contact.email}
+END:VCARD
+            `.trim();
+
+            var blob = new Blob([vcard], { type: "text/vcard" });
+            var link = document.createElement("a");
+            link.href = window.URL.createObjectURL(blob);
+            link.setAttribute("download", contact.name + ".vcf");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function shareProfile() {
+            const profileUrl = 'https://profiles.aurify.ae/suhail';
+
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Check out this profile',
+                    text: 'Name: Suhail\nPhone Number: +971 50 373 1610',
+                    url: profileUrl
+                })
+                .then(() => console.log('Profile shared successfully'))
+                .catch((error) => console.log('Error sharing profile:', error));
+            } else {
+                alert('Web Share API is not supported on this browser.');
+            }
+        }
+    </script>
+        
+
+      
+</body>
+</html>
