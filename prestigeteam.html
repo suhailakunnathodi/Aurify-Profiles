@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* Ensure the image scales properly on mobile screens */
+        img {
+            max-width: 100%; /* Makes the image responsive by setting the max width to 100% of its container */
+            height: auto;    /* Maintains the aspect ratio of the image */
+            display: block;  /* Removes inline-block space below the image */
+            margin: 0 auto;  /* Centers the image horizontally */
+        }
+
+        /* Center the image vertically and horizontally */
+        body {
+            display: flex;
+            justify-content: center; /* Centers horizontally */
+            align-items: center;    /* Centers vertically */
+            min-height: 100vh;       /* Sets the body height to 100% of the viewport height */
+            margin: 0;               /* Removes default margin from the body */
+        }
+    </style>
+</head>
+<body style="background-color: black;">
+    <img src="./images/comingsoon2.jpg" alt="Coming Soon">
+</body>
+</html>
+
