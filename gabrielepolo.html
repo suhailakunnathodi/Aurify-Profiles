@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <title>GDM</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700&subset=latin-ext');
+ html {
+	 position: relative;
+	 overflow-x: hidden !important;
+}
+ * {
+	 box-sizing: border-box;
+}
+ body {
+	 font-family: 'Quicksand', sans-serif;
+	 color: #090c0f;
+}
+ a, a:hover {
+	 text-decoration: none;
+}
+ .icon {
+	 display: inline-block;
+	 width: 1em;
+	 height: 1em;
+	 stroke-width: 0;
+	 stroke: currentColor;
+	 fill: currentColor;
+}
+.wrapper {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    padding: 50px 20px;
+    padding-top: 100px;
+    display: flex;
+    background-image: url('./images/gdmbg.jpg'); /* Add your image here */
+    background-size: cover; /* Ensures the image covers the whole area */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+}
+
+ @media screen and (max-width: 768px) {
+	 .wrapper {
+		 height: auto;
+		 min-height: 100vh;
+		 padding-top: 100px;
+	}
+}
+ .profile-card {
+	 width: 100%;
+	 min-height: 460px;
+	 margin: auto;
+	 box-shadow: 0px 8px 60px -10px rgba(13, 28, 39, 0.6);
+	 background: #070705;
+	 border-radius: 12px;
+	 max-width: 700px;
+	 position: relative;
+}
+ .profile-card.active .profile-card__cnt {
+	 filter: blur(6px);
+}
+ .profile-card.active .profile-card-message, .profile-card.active .profile-card__overlay {
+	 opacity: 1;
+	 pointer-events: auto;
+	 transition-delay: 0.1s;
+}
+ .profile-card.active .profile-card-form {
+	 transform: none;
+	 transition-delay: 0.1s;
+}
+ .profile-card__img {
+	 width: 150px;
+	 height: 150px;
+	 margin-left: auto;
+	 margin-right: auto;
+	 transform: translateY(-50%);
+	 border-radius: 50%;
+	 overflow: hidden;
+	 position: relative;
+	 z-index: 4;
+	 box-shadow: 0px 5px 50px 0px #151515, 0px 0px 0px 7px rgba(12, 12, 12, 0.5);
+}
+ @media screen and (max-width: 576px) {
+	 .profile-card__img {
+		 width: 120px;
+		 height: 120px;
+	}
+}
+ .profile-card__img img {
+	 display: block;
+	 width: 100%;
+	 height: 100%;
+	 object-fit: cover;
+	 border-radius: 50%;
+}
+ .profile-card__cnt {
+	 margin-top: -35px;
+	 text-align: center;
+	 padding: 0 20px;
+	 padding-bottom: 40px;
+	 transition: all 0.3s;
+}
+ .profile-card__name {
+	 font-weight: 700;
+	 font-size: 24px;
+	 color: #f5f0f2;
+	 margin-bottom: 15px;
+}
+ .profile-card__txt {
+	 font-size: 18px;
+	 font-weight: 500;
+	 color: #ebf1f4;
+	 margin-bottom: 15px;
+}
+ .profile-card__txt strong {
+	 font-weight: 700;
+}
+ .profile-card-loc {
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 font-size: 18px;
+	 font-weight: 600;
+}
+ .profile-card-loc__icon {
+	 display: inline-flex;
+	 font-size: 27px;
+	 margin-right: 10px;
+}
+ .profile-card-inf {
+	 display: flex;
+	 justify-content: center;
+	 flex-wrap: wrap;
+	 align-items: flex-start;
+	 margin-top: 35px;
+}
+ .profile-card-inf__item {
+	 padding: 10px 35px;
+	 min-width: 150px;
+}
+ @media screen and (max-width: 768px) {
+	 .profile-card-inf__item {
+		 padding: 10px 20px;
+		 min-width: 120px;
+	}
+}
+ .profile-card-inf__title {
+	 font-weight: 700;
+	 font-size: 27px;
+	 color: #324e63;
+}
+ .profile-card-inf__txt {
+	 font-weight: 500;
+	 margin-top: 7px;
+}
+ .profile-card-social {
+	 margin-top: 25px;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 flex-wrap: wrap;
+}
+ .profile-card-social__item {
+	 display: inline-flex;
+	 width: 55px;
+	 height: 55px;
+	 margin: 15px;
+	 border-radius: 50%;
+	 align-items: center;
+	 justify-content: center;
+	 color: #fff;
+	 background: #405de6;
+	 box-shadow: 0px 7px 30px rgba(43, 98, 169, 0.5);
+	 position: relative;
+	 font-size: 21px;
+	 flex-shrink: 0;
+	 transition: all 0.3s;
+}
+ @media screen and (max-width: 768px) {
+	 .profile-card-social__item {
+		 width: 50px;
+		 height: 50px;
+		 margin: 10px;
+	}
+}
+ @media screen and (min-width: 768px) {
+	 .profile-card-social__item:hover {
+		 transform: scale(1.2);
+	}
+}
+.profile-card-social__item.facebook {
+    background: linear-gradient(45deg, #c48f05, #1a1814); /* Example gradient */
+    box-shadow: 0px 4px 30px rgba(10, 15, 23, 0.5);
+}
+
+
+ .profile-card-social__item.twitter {
+    background: linear-gradient(45deg, #c48f05, #1a1814); /* Example gradient */
+	 box-shadow: 0px 4px 30px rgba(6, 12, 16, 0.7);
+}
+ .profile-card-social__item.instagram {
+    background: linear-gradient(45deg, #c48f05, #1a1814); /* Example gradient */
+	 box-shadow: 0px 4px 30px rgba(12, 9, 15, 0.6);
+}
+ .profile-card-social__item.behance {
+	 background: linear-gradient(45deg, #1769ff, #213fca);
+	 box-shadow: 0px 4px 30px rgba(27, 86, 231, 0.7);
+}
+ .profile-card-social__item.github {
+	 background: linear-gradient(45deg, #333, #626b73);
+	 box-shadow: 0px 4px 30px rgba(63, 65, 67, 0.6);
+}
+ .profile-card-social__item.codepen {
+	 background: linear-gradient(45deg, #324e63, #414447);
+	 box-shadow: 0px 4px 30px rgba(55, 75, 90, 0.6);
+}
+ .profile-card-social__item.link {
+	 background: linear-gradient(45deg, #d5135a, #f05924);
+	 box-shadow: 0px 4px 30px rgba(223, 45, 70, 0.6);
+}
+ .profile-card-social .icon-font {
+	 display: inline-flex;
+}
+ .profile-card-ctr {
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 margin-top: 40px;
+}
+ @media screen and (max-width: 576px) {
+	 .profile-card-ctr {
+		 flex-wrap: wrap;
+	}
+}
+ .profile-card__button {
+	 background: none;
+	 border: none;
+	 font-family: 'Quicksand', sans-serif;
+	 font-weight: 700;
+	 font-size: 19px;
+	 margin: 15px 35px;
+	 padding: 15px 40px;
+	 min-width: 201px;
+	 border-radius: 50px;
+	 min-height: 55px;
+	 color: #fff;
+	 cursor: pointer;
+	 backface-visibility: hidden;
+	 transition: all 0.3s;
+}
+ @media screen and (max-width: 768px) {
+	 .profile-card__button {
+		 min-width: 170px;
+		 margin: 15px 25px;
+	}
+}
+ @media screen and (max-width: 576px) {
+	 .profile-card__button {
+		 min-width: inherit;
+		 margin: 0;
+		 margin-bottom: 16px;
+		 width: 100%;
+		 max-width: 300px;
+	}
+	 .profile-card__button:last-child {
+		 margin-bottom: 0;
+	}
+}
+ .profile-card__button:focus {
+	 outline: none !important;
+}
+ @media screen and (min-width: 768px) {
+	 .profile-card__button:hover {
+		 transform: translateY(-5px);
+	}
+}
+ .profile-card__button:first-child {
+	 margin-left: 0;
+}
+ .profile-card__button:last-child {
+	 margin-right: 0;
+}
+ .profile-card__button.button--blue {
+	/* background: linear-gradient(45deg, #f4c2c2, #e7a8a8, #d69393, #c87f7f, #d49e8a, #b76e79); */
+    background: linear-gradient(45deg, #c48f05, #1a1814); /* Example gradient */
+
+	 box-shadow: 0px 4px 30px rgba(9, 11, 13, 0.4);
+}
+ .profile-card__button.button--blue:hover {
+	 box-shadow: 0px 7px 30px rgba(17, 19, 21, 0.75);
+}
+ .profile-card__button.button--orange {
+  
+	background-color: #c09956;
+
+	
+}
+ .profile-card__button.button--orange:hover {
+	 box-shadow: 0px 7px 30px rgba(22, 6, 8, 0.75);
+}
+ .profile-card__button.button--gray {
+	 box-shadow: none;
+	 background: #dcdcdc;
+	 color: #142029;
+}
+ .profile-card-message {
+	 width: 100%;
+	 height: 100%;
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 padding-top: 130px;
+	 padding-bottom: 100px;
+	 opacity: 0;
+	 pointer-events: none;
+	 transition: all 0.3s;
+}
+ .profile-card-form {
+	 box-shadow: 0 4px 30px rgba(15, 22, 56, 0.35);
+	 max-width: 80%;
+	 margin-left: auto;
+	 margin-right: auto;
+	 height: 100%;
+	 background: #fff;
+	 border-radius: 10px;
+	 padding: 35px;
+	 transform: scale(0.8);
+	 position: relative;
+	 z-index: 3;
+	 transition: all 0.3s;
+}
+ @media screen and (max-width: 768px) {
+	 .profile-card-form {
+		 max-width: 90%;
+		 height: auto;
+	}
+}
+ @media screen and (max-width: 576px) {
+	 .profile-card-form {
+		 padding: 20px;
+	}
+}
+ .profile-card-form__bottom {
+	 justify-content: space-between;
+	 display: flex;
+}
+ @media screen and (max-width: 576px) {
+	 .profile-card-form__bottom {
+		 flex-wrap: wrap;
+	}
+}
+ .profile-card textarea {
+	 width: 100%;
+	 resize: none;
+	 height: 210px;
+	 margin-bottom: 20px;
+	 border: 2px solid #dcdcdc;
+	 border-radius: 10px;
+	 padding: 15px 20px;
+	 color: #324e63;
+	 font-weight: 500;
+	 font-family: 'Quicksand', sans-serif;
+	 outline: none;
+	 transition: all 0.3s;
+}
+ .profile-card textarea:focus {
+	 outline: none;
+	 border-color: #0d0e0f;
+}
+ .profile-card__overlay {
+	 width: 100%;
+	 height: 100%;
+	 position: absolute;
+	 top: 0;
+	 left: 0;
+	 pointer-events: none;
+	 opacity: 0;
+	 background: rgba(22, 33, 72, 0.35);
+	 border-radius: 12px;
+	 transition: all 0.3s;
+}
+ 
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="profile-card js-profile-card">
+            <div class="profile-card__img" style="background-color: #f0f2f7; width: 200px; height: 200px;">
+                <img src="./images/8.png" alt="profile card" style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            
+      
+          <div class="profile-card__cnt js-profile-cnt">
+            <div class="profile-card__name">GDM</div>
+			<a href="https://maps.app.goo.gl/F6RhSwFxcAQAhAkB7" target="_blank">
+				<i class="fa-solid fa-location-dot" style="color: #f0f2f7;"></i>
+			</a>
+			
+            <div class="profile-card__txt"></svg>Dubai, UAE</div>
+            <div class="profile-card-loc">
+              <!-- <span class="profile-card-loc__icon">
+                <svg class="icon"><use xlink:href="#icon-location"></use></svg>
+              </span> -->
+      
+              <!-- <span class="profile-card-loc__txt">
+                Dubai, UAE
+              </span> -->
+            </div>
+      
+            <!-- <div class="profile-card-inf">
+              <div class="profile-card-inf__item">
+                <div class="profile-card-inf__title">1598</div>
+                <div class="profile-card-inf__txt">Followers</div>
+              </div>
+      
+              <div class="profile-card-inf__item">
+                <div class="profile-card-inf__title">65</div>
+                <div class="profile-card-inf__txt">Following</div>
+              </div>
+      
+              <div class="profile-card-inf__item">
+                <div class="profile-card-inf__title">123</div>
+                <div class="profile-card-inf__txt">Articles</div>
+              </div>
+      
+              <div class="profile-card-inf__item">
+                <div class="profile-card-inf__title">85</div>
+                <div class="profile-card-inf__txt">Works</div>
+              </div>
+            </div> -->
+      
+            <div class="profile-card-social">
+              <a href="tel:+971 502298202" class="profile-card-social__item facebook" target="_blank">
+                <span class="icon-font">
+                    <i class="fa fa-phone"></i>
+                </span>
+              </a>
+      
+              <a href="tel: +971 42985470" class="profile-card-social__item twitter" target="_blank">
+                <span class="icon-font">
+                    <i class="fa fa-tty"></i>
+                </span>
+              </a>
+      
+              <a href="" class="profile-card-social__item instagram" target="_blank">
+                <span class="icon-font">
+                    <i class="fa fa-envelope"></i>
+                </span>
+              </a>
+      
+              <!-- <a href="https://www.behance.net/iaMuhammedErdem" class="profile-card-social__item behance" target="_blank">
+                <span class="icon-font">
+                    <svg class="icon"><use xlink:href="#icon-behance"></use></svg>
+                </span>
+              </a> -->
+      
+              <!-- <a href="https://github.com/muhammederdem" class="profile-card-social__item github" target="_blank">
+                <span class="icon-font">
+                    <svg class="icon"><use xlink:href="#icon-github"></use></svg>
+                </span>
+              </a> -->
+      
+              <!-- <a href="https://codepen.io/JavaScriptJunkie" class="profile-card-social__item codepen" target="_blank">
+                <span class="icon-font">
+                    <svg class="icon"><use xlink:href="#icon-codepen"></use></svg>
+                </span>
+              </a>
+       -->
+              <!-- <a href="http://muhammederdem.com.tr/" class="profile-card-social__item link" target="_blank">
+                <span class="icon-font">
+                    <svg class="icon"><use xlink:href="#icon-link"></use></svg>
+                </span>
+              </a> -->
+      
+            </div>
+      
+            <div class="profile-card-ctr">
+                <button class="profile-card__button button--blue">Save</button>
+                <!-- <button class="profile-card__button button--orange" onclick="shareProfile()">Share</button> -->
+                <!-- <button class="profile-card__button button--orange" onclick="window.location.href='https://aurifyae.github.io/BABA-Gold-App-Demo/';">Live rate</button> -->
+            </div>
+            
+          </div>
+      <p style="text-align: center; color: #f5f0f2;" > concept by &copy;Aurify</p>
+          <div class="profile-card-message js-message">
+            <form class="profile-card-form">
+              <div class="profile-card-form__container">
+                <textarea placeholder="Say something..."></textarea>
+              </div>
+      
+             
+            </form>
+      
+            <div class="profile-card__overlay js-message-close"></div>
+          </div>
+      
+        </div>
+    
+      
+      </div>
+      
+      
+     
+     
+
+</body>
+</html>
